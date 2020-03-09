@@ -13,6 +13,7 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       First Name: 
     </label>
     <input
+      className="Input "
       id="first_name"
       name="first_name"
       required={true}
@@ -28,6 +29,7 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       Last Name: 
     </label>
     <input
+      className="Input "
       id="last_name"
       name="last_name"
       required={true}
@@ -43,6 +45,7 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       Username: 
     </label>
     <input
+      className="Input "
       id="username"
       name="username"
       required={true}
@@ -58,6 +61,7 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       Email: 
     </label>
     <input
+      className="Input "
       id="email"
       name="email"
       required={true}
@@ -73,6 +77,7 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       Confirm Email: 
     </label>
     <input
+      className="Input "
       id="confirm_email"
       name="confirm_email"
       required={true}
@@ -88,6 +93,7 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       Password: 
     </label>
     <input
+      className="Input "
       id="password"
       name="password"
       required={true}
@@ -103,6 +109,7 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       Confirm Password: 
     </label>
     <input
+      className="Input "
       id="confirm_password"
       name="confirm_password"
       required={true}
@@ -113,11 +120,13 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
     className="CreateAccountForm__buttons"
   >
     <button
+      className="Button "
       type="submit"
     >
       Create Account
     </button>
     <button
+      className="Button "
       type="button"
     >
       Login

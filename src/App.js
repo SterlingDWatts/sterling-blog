@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
+import Landing from "./routes/Landing/Landing";
 import BlogsListPage from "./routes/BlogsListPage/BlogsListPage";
 import BlogPage from "./routes/BlogPage/BlogPage";
 import LoginForm from "./components/LoginForm/LoginForm";
@@ -14,6 +15,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
+          <Route exact path="/" component={Landing} />
           <Route exact path="/blogs" component={BlogsListPage} />
           <Route path="/blogs/create-blog" component={AddBlog} />
           <Route path="/blogs/:blogId" component={BlogPage} />
