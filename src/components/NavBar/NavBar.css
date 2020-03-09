@@ -1,12 +1,16 @@
 .NavBar {
-  padding: 8px;
   border-bottom: 1px solid black;
 }
 
 .NavBar__container {
+  padding: 8px 16px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  min-height: 32px;
+  width: 100%;
+  max-width: 944px;
+  margin: 0 auto;
 }
 
 .NavBar__links a {

@@ -13,6 +13,7 @@ exports[`LoginForm Component renders the UI as expected 1`] = `
       Username: 
     </label>
     <input
+      className="Input "
       id="username"
       name="username"
       required={true}
@@ -28,6 +29,7 @@ exports[`LoginForm Component renders the UI as expected 1`] = `
       Password: 
     </label>
     <input
+      className="Input "
       id="password"
       name="password"
       required={true}
@@ -38,11 +40,13 @@ exports[`LoginForm Component renders the UI as expected 1`] = `
     className="LoginForm__buttons"
   >
     <button
+      className="Button "
       type="submit"
     >
       Login
     </button>
     <button
+      className="Button "
       type="button"
     >
       Create Account

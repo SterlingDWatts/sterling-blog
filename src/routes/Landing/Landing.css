@@ -1,0 +1,39 @@
+.Landing {
+  line-height: 1.5em;
+}
+
+.Landing header {
+  padding: 45px 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.Landing h1 {
+  font-size: 40px;
+  margin: 27px 0px;
+}
+
+.Landing h2 {
+  font-size: 24px;
+  margin: 24px 0px;
+}
+
+.Landing section {
+  min-height: 200px;
+  padding: 30px 15px;
+  background-color: #bbb;
+}
+
+.Landing section:nth-child(even) {
+  background-color: #ddd;
+}
+
+.Landing p {
+  padding: 8px;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+.Landing p + .Landing p {
+  margin-top: 15px;
+}
