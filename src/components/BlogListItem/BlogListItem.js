@@ -11,7 +11,7 @@ class BlogListItem extends Component {
       <li className="BlogListItem">
         <div className="BlogListItem__info">
           <Link
-            to={`/blog/${this.props.id}`}
+            to={`/blogs/${this.props.id}`}
             className="BlogListItem__title_link"
           >
             <h3 className="BlogListItem__title">{this.props.title}</h3>
@@ -23,7 +23,7 @@ class BlogListItem extends Component {
           <div className="BlogListItem__line"></div>
         </div>
         <div className="BlogListItem__pic_holder">
-          <Link to={`/blog/${this.props.id}`}>
+          <Link to={`/blogs/${this.props.id}`}>
             <div
               className="BlogListItem__pic"
               style={{
