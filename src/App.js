@@ -5,6 +5,7 @@ import BlogsListPage from "./routes/BlogsListPage/BlogsListPage";
 import BlogPage from "./routes/BlogPage/BlogPage";
 import LoginForm from "./components/LoginForm/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm/CreateAccountForm";
+import AddBlog from "./routes/AddBlog/AddBlog";
 import "./App.css";
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route exact path="/" component={BlogsListPage} />
+          <Route exact path="/blogs" component={BlogsListPage} />
+          <Route path="/blogs/create-blog" component={AddBlog} />
           <Route path="/blogs/:blogId" component={BlogPage} />
           <Route path="/login" component={LoginForm} />
           <Route path="/create-account" component={CreateAccountForm} />

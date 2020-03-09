@@ -9,29 +9,28 @@ class BlogListItem extends Component {
     const length = Math.floor(this.props.content.length / 300);
     return (
       <li className="BlogListItem">
-        <div className="BlogListItem__info">
-          <Link
-            to={`/blogs/${this.props.id}`}
-            className="BlogListItem__title_link"
-          >
+        <Link
+          to={`/blogs/${this.props.id}`}
+          className="BlogListItem__title_link"
+        >
+          <div className="BlogListItem__info">
             <h3 className="BlogListItem__title">{this.props.title}</h3>
-          </Link>
-          <div className="BlogListItem__date_and_length">
-            {this.props.date + " · " + length + " min read"}
+
+            <div className="BlogListItem__date_and_length">
+              {this.props.date + " · " + length + " min read"}
+            </div>
+            <div className="BlogListItem__author">{this.props.author}</div>
+            <div className="BlogListItem__line"></div>
           </div>
-          <div className="BlogListItem__author">{this.props.author}</div>
-          <div className="BlogListItem__line"></div>
-        </div>
-        <div className="BlogListItem__pic_holder">
-          <Link to={`/blogs/${this.props.id}`}>
+          <div className="BlogListItem__pic_holder">
             <div
               className="BlogListItem__pic"
               style={{
                 backgroundImage: "url('" + this.props.squarePic + "')"
               }}
             ></div>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </li>
     );
   }

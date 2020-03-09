@@ -1,0 +1,11 @@
+.AddBlog {
+  padding: 8px;
+}
+
+.AddBlog__title,
+.AddBlog__picture,
+.AddBlog__content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}

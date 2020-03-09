@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddBlog Component renders the UI as expected 1`] = `
+<form
+  className="AddBlog"
+>
+  <div
+    className="AddBlog__title"
+  >
+    <label
+      htmlFor="title"
+    >
+      Title: 
+    </label>
+    <input
+      id="title"
+      name="title"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="AddBlog__picture"
+  >
+    <label
+      htmlFor="picture"
+    >
+      Url for Picture: 
+    </label>
+    <input
+      id="picture"
+      name="picture"
+      required={true}
+      type="url"
+    />
+  </div>
+  <div
+    className="AddBlog__content"
+  >
+    <label
+      htmlFor="content"
+    >
+      Content: 
+    </label>
+    <textarea
+      id="content"
+      name="content"
+      required={true}
+    />
+  </div>
+  <div
+    className="AddBlog__buttons"
+  >
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+    <button>
+      Cancel
+    </button>
+  </div>
+</form>
+`;
