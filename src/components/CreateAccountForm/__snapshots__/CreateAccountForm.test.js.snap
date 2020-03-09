@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateAccountForm Component renders the UI as expected 1`] = `
+<form
+  className="CreateAccountForm"
+>
+  <div
+    className="CreateAccountForm__first_name"
+  >
+    <label
+      htmlFor="first_name"
+    >
+      First Name: 
+    </label>
+    <input
+      id="first_name"
+      name="first_name"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="CreateAccountForm__last_name"
+  >
+    <label
+      htmlFor="last_name"
+    >
+      Last Name: 
+    </label>
+    <input
+      id="last_name"
+      name="last_name"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="CreateAccountForm__username"
+  >
+    <label
+      htmlFor="username"
+    >
+      Username: 
+    </label>
+    <input
+      id="username"
+      name="username"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="CreateAccountForm__email"
+  >
+    <label
+      htmlFor="email"
+    >
+      Email: 
+    </label>
+    <input
+      id="email"
+      name="email"
+      required={true}
+      type="email"
+    />
+  </div>
+  <div
+    className="CreateAccountForm__confirm_email"
+  >
+    <label
+      htmlFor="confirm_email"
+    >
+      Confirm Email: 
+    </label>
+    <input
+      id="confirm_email"
+      name="confirm_email"
+      required={true}
+      type="email"
+    />
+  </div>
+  <div
+    className="CreateAccountForm__password"
+  >
+    <label
+      htmlFor="password"
+    >
+      Password: 
+    </label>
+    <input
+      id="password"
+      name="password"
+      required={true}
+      type="password"
+    />
+  </div>
+  <div
+    className="CreateAccountForm__confirm_password"
+  >
+    <label
+      htmlFor="confirm_password"
+    >
+      Confirm Password: 
+    </label>
+    <input
+      id="confirm_password"
+      name="confirm_password"
+      required={true}
+      type="password"
+    />
+  </div>
+  <div
+    className="CreateAccountForm__buttons"
+  >
+    <button
+      type="submit"
+    >
+      Create Account
+    </button>
+    <button
+      type="button"
+    >
+      Login
+    </button>
+  </div>
+</form>
+`;

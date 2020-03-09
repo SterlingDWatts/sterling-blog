@@ -10,7 +10,10 @@ class NavBar extends Component {
           <div className="NavBar__marque">
             <Link to="/">Sterling | Blog</Link>
           </div>
-          <nav className="NavBar__links"></nav>
+          <nav className="NavBar__links">
+            <Link to="/login">Login</Link>
+            <Link to="/create-account">Create Account</Link>
+          </nav>
         </div>
       </nav>
     );

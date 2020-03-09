@@ -2,3 +2,13 @@
   padding: 8px;
   border-bottom: 1px solid black;
 }
+
+.NavBar__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.NavBar__links a {
+  margin-left: 16px;
+}

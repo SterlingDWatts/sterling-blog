@@ -1,0 +1,15 @@
+.CreateAccountForm {
+  padding: 8px;
+}
+
+.CreateAccountForm__first_name,
+.CreateAccountForm__last_name,
+.CreateAccountForm__username,
+.CreateAccountForm__email,
+.CreateAccountForm__confirm_email,
+.CreateAccountForm__password,
+.CreateAccountForm__confirm_password {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}

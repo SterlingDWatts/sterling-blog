@@ -22,7 +22,20 @@ exports[`App Component renders the UI as expected 1`] = `
       </div>
       <nav
         className="NavBar__links"
-      />
+      >
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Login
+        </a>
+        <a
+          href="/create-account"
+          onClick={[Function]}
+        >
+          Create Account
+        </a>
+      </nav>
     </div>
   </nav>
   <div
