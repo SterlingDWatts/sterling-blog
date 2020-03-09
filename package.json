@@ -14,6 +14,7 @@
     "husky": "^4.2.3",
     "onchange": "^6.1.0",
     "prettier": "^1.19.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
@@ -22,9 +23,14 @@
   "scripts": {
     "prettier-watch": "onchange \"**/*.js\" -- prettier --write {{changed}}",
     "start": "react-scripts start",
+    "prebuild": "CI=true react-scripts test --colors",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "now --prod ./build",
+    "serve": "serve -s build",
+    "preserve": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,7 +55,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-standard": "^4.0.1",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "serve": "^11.3.0"
   },
   "husky": {
     "hooks": {
