@@ -11,7 +11,7 @@ exports[`NavBar Component renders the UI as expected 1`] = `
       className="NavBar__marque"
     >
       <a
-        href="/"
+        href="/blogs"
         onClick={[Function]}
       >
         Sterling | Blog
@@ -20,6 +20,12 @@ exports[`NavBar Component renders the UI as expected 1`] = `
     <nav
       className="NavBar__links"
     >
+      <a
+        href="/blogs/create-blog"
+        onClick={[Function]}
+      >
+        Create Blog
+      </a>
       <a
         href="/login"
         onClick={[Function]}

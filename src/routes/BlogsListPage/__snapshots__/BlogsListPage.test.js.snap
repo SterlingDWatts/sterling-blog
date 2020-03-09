@@ -11,40 +11,35 @@ exports[`BlogsListPage Component renders the UI as expected 1`] = `
       <li
         className="BlogListItem"
       >
-        <div
-          className="BlogListItem__info"
+        <a
+          className="BlogListItem__title_link"
+          href="/blogs/1"
+          onClick={[Function]}
         >
-          <a
-            className="BlogListItem__title_link"
-            href="/blogs/1"
-            onClick={[Function]}
+          <div
+            className="BlogListItem__info"
           >
             <h3
               className="BlogListItem__title"
             >
               Maintaining Prettier Code Using... Prettier.
             </h3>
-          </a>
-          <div
-            className="BlogListItem__date_and_length"
-          >
-            December 22, 2019 · 9 min read
+            <div
+              className="BlogListItem__date_and_length"
+            >
+              December 22, 2019 · 9 min read
+            </div>
+            <div
+              className="BlogListItem__author"
+            >
+              Brandon Hutchison
+            </div>
+            <div
+              className="BlogListItem__line"
+            />
           </div>
           <div
-            className="BlogListItem__author"
-          >
-            Brandon Hutchison
-          </div>
-          <div
-            className="BlogListItem__line"
-          />
-        </div>
-        <div
-          className="BlogListItem__pic_holder"
-        >
-          <a
-            href="/blogs/1"
-            onClick={[Function]}
+            className="BlogListItem__pic_holder"
           >
             <div
               className="BlogListItem__pic"
@@ -54,46 +49,41 @@ exports[`BlogsListPage Component renders the UI as expected 1`] = `
                 }
               }
             />
-          </a>
-        </div>
+          </div>
+        </a>
       </li>
       <li
         className="BlogListItem"
       >
-        <div
-          className="BlogListItem__info"
+        <a
+          className="BlogListItem__title_link"
+          href="/blogs/2"
+          onClick={[Function]}
         >
-          <a
-            className="BlogListItem__title_link"
-            href="/blogs/2"
-            onClick={[Function]}
+          <div
+            className="BlogListItem__info"
           >
             <h3
               className="BlogListItem__title"
             >
               This is the Title of This Blog
             </h3>
-          </a>
-          <div
-            className="BlogListItem__date_and_length"
-          >
-            August 15, 2019 · 10 min read
+            <div
+              className="BlogListItem__date_and_length"
+            >
+              August 15, 2019 · 10 min read
+            </div>
+            <div
+              className="BlogListItem__author"
+            >
+              Tom Terlecki
+            </div>
+            <div
+              className="BlogListItem__line"
+            />
           </div>
           <div
-            className="BlogListItem__author"
-          >
-            Tom Terlecki
-          </div>
-          <div
-            className="BlogListItem__line"
-          />
-        </div>
-        <div
-          className="BlogListItem__pic_holder"
-        >
-          <a
-            href="/blogs/2"
-            onClick={[Function]}
+            className="BlogListItem__pic_holder"
           >
             <div
               className="BlogListItem__pic"
@@ -103,46 +93,41 @@ exports[`BlogsListPage Component renders the UI as expected 1`] = `
                 }
               }
             />
-          </a>
-        </div>
+          </div>
+        </a>
       </li>
       <li
         className="BlogListItem"
       >
-        <div
-          className="BlogListItem__info"
+        <a
+          className="BlogListItem__title_link"
+          href="/blogs/3"
+          onClick={[Function]}
         >
-          <a
-            className="BlogListItem__title_link"
-            href="/blogs/3"
-            onClick={[Function]}
+          <div
+            className="BlogListItem__info"
           >
             <h3
               className="BlogListItem__title"
             >
               Why Learn to Code?
             </h3>
-          </a>
-          <div
-            className="BlogListItem__date_and_length"
-          >
-            May 4, 2019 · 15 min read
+            <div
+              className="BlogListItem__date_and_length"
+            >
+              May 4, 2019 · 15 min read
+            </div>
+            <div
+              className="BlogListItem__author"
+            >
+              Sterling Watts
+            </div>
+            <div
+              className="BlogListItem__line"
+            />
           </div>
           <div
-            className="BlogListItem__author"
-          >
-            Sterling Watts
-          </div>
-          <div
-            className="BlogListItem__line"
-          />
-        </div>
-        <div
-          className="BlogListItem__pic_holder"
-        >
-          <a
-            href="/blogs/3"
-            onClick={[Function]}
+            className="BlogListItem__pic_holder"
           >
             <div
               className="BlogListItem__pic"
@@ -152,46 +137,41 @@ exports[`BlogsListPage Component renders the UI as expected 1`] = `
                 }
               }
             />
-          </a>
-        </div>
+          </div>
+        </a>
       </li>
       <li
         className="BlogListItem"
       >
-        <div
-          className="BlogListItem__info"
+        <a
+          className="BlogListItem__title_link"
+          href="/blogs/4"
+          onClick={[Function]}
         >
-          <a
-            className="BlogListItem__title_link"
-            href="/blogs/4"
-            onClick={[Function]}
+          <div
+            className="BlogListItem__info"
           >
             <h3
               className="BlogListItem__title"
             >
               Better Commit Messages
             </h3>
-          </a>
-          <div
-            className="BlogListItem__date_and_length"
-          >
-            May 4, 2019 · 10 min read
+            <div
+              className="BlogListItem__date_and_length"
+            >
+              May 4, 2019 · 10 min read
+            </div>
+            <div
+              className="BlogListItem__author"
+            >
+              Sterling Watts
+            </div>
+            <div
+              className="BlogListItem__line"
+            />
           </div>
           <div
-            className="BlogListItem__author"
-          >
-            Sterling Watts
-          </div>
-          <div
-            className="BlogListItem__line"
-          />
-        </div>
-        <div
-          className="BlogListItem__pic_holder"
-        >
-          <a
-            href="/blogs/4"
-            onClick={[Function]}
+            className="BlogListItem__pic_holder"
           >
             <div
               className="BlogListItem__pic"
@@ -201,8 +181,8 @@ exports[`BlogsListPage Component renders the UI as expected 1`] = `
                 }
               }
             />
-          </a>
-        </div>
+          </div>
+        </a>
       </li>
     </ul>
   </main>
