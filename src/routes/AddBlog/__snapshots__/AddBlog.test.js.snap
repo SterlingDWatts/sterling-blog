@@ -25,7 +25,7 @@ exports[`AddBlog Component renders the UI as expected 1`] = `
     <label
       htmlFor="picture"
     >
-      Url for Picture: 
+      URL for Picture: 
     </label>
     <input
       id="picture"
