@@ -9,7 +9,7 @@ exports[`BlogListItem Component renders the UI as expected 1`] = `
   >
     <a
       className="BlogListItem__title_link"
-      href="/blog/1"
+      href="/blogs/1"
       onClick={[Function]}
     >
       <h3
@@ -36,7 +36,7 @@ exports[`BlogListItem Component renders the UI as expected 1`] = `
     className="BlogListItem__pic_holder"
   >
     <a
-      href="/blog/1"
+      href="/blogs/1"
       onClick={[Function]}
     >
       <div

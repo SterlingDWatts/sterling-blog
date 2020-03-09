@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogList Component renders the UI as expected 1`] = `
+<ul
+  className="BlogList"
+>
+  <li
+    className="BlogListItem"
+  >
+    <div
+      className="BlogListItem__info"
+    >
+      <a
+        className="BlogListItem__title_link"
+        href="/blogs/1"
+        onClick={[Function]}
+      >
+        <h3
+          className="BlogListItem__title"
+        >
+          test title
+        </h3>
+      </a>
+      <div
+        className="BlogListItem__date_and_length"
+      >
+        December 22, 2019 · 0 min read
+      </div>
+      <div
+        className="BlogListItem__author"
+      >
+        test author
+      </div>
+      <div
+        className="BlogListItem__line"
+      />
+    </div>
+    <div
+      className="BlogListItem__pic_holder"
+    >
+      <a
+        href="/blogs/1"
+        onClick={[Function]}
+      >
+        <div
+          className="BlogListItem__pic"
+          style={
+            Object {
+              "backgroundImage": "url('https://picsum.photos/seed/three/255/255')",
+            }
+          }
+        />
+      </a>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`BlogList Component renders the UI as expected with no blogs 1`] = `
+<ul
+  className="BlogList"
+/>
+`;

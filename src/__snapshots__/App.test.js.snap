@@ -25,209 +25,211 @@ exports[`App Component renders the UI as expected 1`] = `
       />
     </div>
   </nav>
-  <main
+  <div
     className="BlogsListPage"
   >
-    <ul
-      className="BlogsListPage__ul"
-    >
-      <li
-        className="BlogListItem"
+    <main>
+      <ul
+        className="BlogList"
       >
-        <div
-          className="BlogListItem__info"
+        <li
+          className="BlogListItem"
         >
-          <a
-            className="BlogListItem__title_link"
-            href="/blog/1"
-            onClick={[Function]}
+          <div
+            className="BlogListItem__info"
           >
-            <h3
-              className="BlogListItem__title"
+            <a
+              className="BlogListItem__title_link"
+              href="/blogs/1"
+              onClick={[Function]}
             >
-              Maintaining Prettier Code Using... Prettier.
-            </h3>
-          </a>
-          <div
-            className="BlogListItem__date_and_length"
-          >
-            December 22, 2019 · 9 min read
-          </div>
-          <div
-            className="BlogListItem__author"
-          >
-            Brandon Hutchison
-          </div>
-          <div
-            className="BlogListItem__line"
-          />
-        </div>
-        <div
-          className="BlogListItem__pic_holder"
-        >
-          <a
-            href="/blog/1"
-            onClick={[Function]}
-          >
+              <h3
+                className="BlogListItem__title"
+              >
+                Maintaining Prettier Code Using... Prettier.
+              </h3>
+            </a>
             <div
-              className="BlogListItem__pic"
-              style={
-                Object {
-                  "backgroundImage": "url('https://picsum.photos/seed/three/255/255')",
-                }
-              }
-            />
-          </a>
-        </div>
-      </li>
-      <li
-        className="BlogListItem"
-      >
-        <div
-          className="BlogListItem__info"
-        >
-          <a
-            className="BlogListItem__title_link"
-            href="/blog/2"
-            onClick={[Function]}
-          >
-            <h3
-              className="BlogListItem__title"
+              className="BlogListItem__date_and_length"
             >
-              This is the Title of This Blog
-            </h3>
-          </a>
-          <div
-            className="BlogListItem__date_and_length"
-          >
-            August 15, 2019 · 10 min read
-          </div>
-          <div
-            className="BlogListItem__author"
-          >
-            Tom Terlecki
-          </div>
-          <div
-            className="BlogListItem__line"
-          />
-        </div>
-        <div
-          className="BlogListItem__pic_holder"
-        >
-          <a
-            href="/blog/2"
-            onClick={[Function]}
-          >
+              December 22, 2019 · 9 min read
+            </div>
             <div
-              className="BlogListItem__pic"
-              style={
-                Object {
-                  "backgroundImage": "url('https://picsum.photos/seed/2/255/255')",
-                }
-              }
-            />
-          </a>
-        </div>
-      </li>
-      <li
-        className="BlogListItem"
-      >
-        <div
-          className="BlogListItem__info"
-        >
-          <a
-            className="BlogListItem__title_link"
-            href="/blog/3"
-            onClick={[Function]}
-          >
-            <h3
-              className="BlogListItem__title"
+              className="BlogListItem__author"
             >
-              Why Learn to Code?
-            </h3>
-          </a>
-          <div
-            className="BlogListItem__date_and_length"
-          >
-            May 4, 2019 · 15 min read
-          </div>
-          <div
-            className="BlogListItem__author"
-          >
-            Sterling Watts
-          </div>
-          <div
-            className="BlogListItem__line"
-          />
-        </div>
-        <div
-          className="BlogListItem__pic_holder"
-        >
-          <a
-            href="/blog/3"
-            onClick={[Function]}
-          >
+              Brandon Hutchison
+            </div>
             <div
-              className="BlogListItem__pic"
-              style={
-                Object {
-                  "backgroundImage": "url('https://picsum.photos/seed/one/255/255')",
-                }
-              }
+              className="BlogListItem__line"
             />
-          </a>
-        </div>
-      </li>
-      <li
-        className="BlogListItem"
-      >
-        <div
-          className="BlogListItem__info"
-        >
-          <a
-            className="BlogListItem__title_link"
-            href="/blog/4"
-            onClick={[Function]}
+          </div>
+          <div
+            className="BlogListItem__pic_holder"
           >
-            <h3
-              className="BlogListItem__title"
+            <a
+              href="/blogs/1"
+              onClick={[Function]}
             >
-              Better Commit Messages
-            </h3>
-          </a>
-          <div
-            className="BlogListItem__date_and_length"
-          >
-            May 4, 2019 · 10 min read
-          </div>
-          <div
-            className="BlogListItem__author"
-          >
-            Sterling Watts
-          </div>
-          <div
-            className="BlogListItem__line"
-          />
-        </div>
-        <div
-          className="BlogListItem__pic_holder"
-        >
-          <a
-            href="/blog/4"
-            onClick={[Function]}
-          >
-            <div
-              className="BlogListItem__pic"
-              style={
-                Object {
-                  "backgroundImage": "url('https://picsum.photos/seed/dino/255/255')",
+              <div
+                className="BlogListItem__pic"
+                style={
+                  Object {
+                    "backgroundImage": "url('https://picsum.photos/seed/three/255/255')",
+                  }
                 }
-              }
+              />
+            </a>
+          </div>
+        </li>
+        <li
+          className="BlogListItem"
+        >
+          <div
+            className="BlogListItem__info"
+          >
+            <a
+              className="BlogListItem__title_link"
+              href="/blogs/2"
+              onClick={[Function]}
+            >
+              <h3
+                className="BlogListItem__title"
+              >
+                This is the Title of This Blog
+              </h3>
+            </a>
+            <div
+              className="BlogListItem__date_and_length"
+            >
+              August 15, 2019 · 10 min read
+            </div>
+            <div
+              className="BlogListItem__author"
+            >
+              Tom Terlecki
+            </div>
+            <div
+              className="BlogListItem__line"
             />
-          </a>
-        </div>
-      </li>
-    </ul>
-  </main>
+          </div>
+          <div
+            className="BlogListItem__pic_holder"
+          >
+            <a
+              href="/blogs/2"
+              onClick={[Function]}
+            >
+              <div
+                className="BlogListItem__pic"
+                style={
+                  Object {
+                    "backgroundImage": "url('https://picsum.photos/seed/2/255/255')",
+                  }
+                }
+              />
+            </a>
+          </div>
+        </li>
+        <li
+          className="BlogListItem"
+        >
+          <div
+            className="BlogListItem__info"
+          >
+            <a
+              className="BlogListItem__title_link"
+              href="/blogs/3"
+              onClick={[Function]}
+            >
+              <h3
+                className="BlogListItem__title"
+              >
+                Why Learn to Code?
+              </h3>
+            </a>
+            <div
+              className="BlogListItem__date_and_length"
+            >
+              May 4, 2019 · 15 min read
+            </div>
+            <div
+              className="BlogListItem__author"
+            >
+              Sterling Watts
+            </div>
+            <div
+              className="BlogListItem__line"
+            />
+          </div>
+          <div
+            className="BlogListItem__pic_holder"
+          >
+            <a
+              href="/blogs/3"
+              onClick={[Function]}
+            >
+              <div
+                className="BlogListItem__pic"
+                style={
+                  Object {
+                    "backgroundImage": "url('https://picsum.photos/seed/one/255/255')",
+                  }
+                }
+              />
+            </a>
+          </div>
+        </li>
+        <li
+          className="BlogListItem"
+        >
+          <div
+            className="BlogListItem__info"
+          >
+            <a
+              className="BlogListItem__title_link"
+              href="/blogs/4"
+              onClick={[Function]}
+            >
+              <h3
+                className="BlogListItem__title"
+              >
+                Better Commit Messages
+              </h3>
+            </a>
+            <div
+              className="BlogListItem__date_and_length"
+            >
+              May 4, 2019 · 10 min read
+            </div>
+            <div
+              className="BlogListItem__author"
+            >
+              Sterling Watts
+            </div>
+            <div
+              className="BlogListItem__line"
+            />
+          </div>
+          <div
+            className="BlogListItem__pic_holder"
+          >
+            <a
+              href="/blogs/4"
+              onClick={[Function]}
+            >
+              <div
+                className="BlogListItem__pic"
+                style={
+                  Object {
+                    "backgroundImage": "url('https://picsum.photos/seed/dino/255/255')",
+                  }
+                }
+              />
+            </a>
+          </div>
+        </li>
+      </ul>
+    </main>
+  </div>
 </div>
 `;
