@@ -7,13 +7,15 @@ exports[`BlogBody Component renders the UI as expected 1`] = `
   <header>
     <h2
       className="BlogBody__title"
-    />
+    >
+      test title
+    </h2>
   </header>
   <div
     className="BlogBody__pic"
     style={
       Object {
-        "backgroundImage": "url('undefined')",
+        "backgroundImage": "url('https://picsum.photos/seed/three/900/510')",
       }
     }
   />
@@ -22,13 +24,19 @@ exports[`BlogBody Component renders the UI as expected 1`] = `
   >
     <div
       className="BlogBody__date"
-    />
+    >
+      December 22, 2019
+    </div>
     <div
       className="BlogBody__author"
-    />
+    >
+      test author
+    </div>
   </div>
   <div
     className="BlogBody__content"
-  />
+  >
+    test content
+  </div>
 </main>
 `;

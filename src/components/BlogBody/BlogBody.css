@@ -1,0 +1,28 @@
+.BlogBody {
+  line-height: 1.5em;
+}
+
+.BlogBody__title {
+  font-weight: 600;
+  font-size: 24px;
+  margin: 32px 0px;
+}
+
+.BlogBody__pic {
+  width: 100%;
+  height: calc((100vw - 32px) / 900 * 510);
+  background-position: center;
+  background-size: cover;
+}
+
+.BlogBody__date_and_author {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.BlogBody__date {
+  font-size: 13px;
+  color: grey;
+}

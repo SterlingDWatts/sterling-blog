@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import BlogBody from "../../components/BlogBody/BlogBody";
 import BlogList from "../../components/BlogList/BlogList";
 import blogs from "../../blogs-store";
@@ -12,7 +13,7 @@ class BlogPage extends Component {
     return (
       <div className="BlogPage">
         <BlogBody {...blog[0]} />
-        <section className="BlogPage__blog-list">
+        <section className="BlogPage__blog_list">
           <h3>Recent Blogs</h3>
           <BlogList blogs={blogs.slice(0, 2)} />
         </section>
@@ -20,5 +21,9 @@ class BlogPage extends Component {
     );
   }
 }
+
+BlogPage.propTypes = {
+  match: PropTypes.object
+};
 
 export default BlogPage;

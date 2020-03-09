@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./BlogBody.css";
 
 class BlogBody extends Component {
@@ -21,5 +22,34 @@ class BlogBody extends Component {
     );
   }
 }
+
+BlogBody.propTypes = {
+  id: PropTypes.number.isRequired,
+  views: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  squarePic: PropTypes.string.isRequired,
+  longPic: PropTypes.string.isRequired,
+  date: (props, propName, componentName) => {
+    const prop = props[propName];
+
+    if (!prop) {
+      return new Error(`${propName} is required in ${componentName}`);
+    }
+
+    if (typeof prop != "string") {
+      return new Error(
+        `Invalid prop, ${propName} is expected to be a string in ${componentName}. ${typeof prop} found.`
+      );
+    }
+
+    if (!new Date(prop).getTime()) {
+      return new Error(
+        `Invalid prop, ${propName} is expected to be a date in ${componentName}`
+      );
+    }
+  }
+};
 
 export default BlogBody;

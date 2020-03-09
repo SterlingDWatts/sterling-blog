@@ -1,3 +1,44 @@
 .BlogListItem {
-  margin: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 1em;
+  border: 1px solid black;
+}
+
+.BlogListItem__info {
+  padding: 8px;
+}
+
+.BlogListItem__title {
+  font-weight: 600;
+}
+
+a.BlogListItem__title_link:link,
+a.BlogListItem__title_link:visited {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.BlogListItem__date_and_length {
+  font-size: 10px;
+  color: grey;
+}
+
+.BlogListItem__author {
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+.BlogListItem__pic {
+  width: calc((100vw - 32px) * 0.2777);
+  height: calc((100vw -32px) * 0.2777);
+  max-width: 200px;
+  max-height: 200px;
+  background-position: center;
+  background-size: cover;
+}
+
+.BlogListItem + .BlogListItem {
+  margin-top: 8px;
 }
