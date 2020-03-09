@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar Component renders the UI as expected 1`] = `
+<nav
+  className="NavBar"
+>
+  <div
+    className="NavBar__container"
+  >
+    <div
+      className="NavBar__marque"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Sterling | Blog
+      </a>
+    </div>
+    <nav
+      className="NavBar__links"
+    />
+  </div>
+</nav>
+`;

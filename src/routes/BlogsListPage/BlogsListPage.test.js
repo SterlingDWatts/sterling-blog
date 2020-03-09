@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
 import renderer from "react-test-renderer";
-import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import BlogsListPage from "./BlogsListPage";
 
-describe("App Component", () => {
+describe("BlogsListPage Component", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <BrowserRouter>
-        <App />
+        <BlogsListPage />
       </BrowserRouter>,
       div
     );
@@ -20,7 +20,7 @@ describe("App Component", () => {
     const tree = renderer
       .create(
         <BrowserRouter>
-          <App />
+          <BlogsListPage />
         </BrowserRouter>
       )
       .toJSON();
