@@ -23,3 +23,18 @@ export function BlogContent({ content, className, ...props }) {
 export function NiceDate({ date, format = "MMMM dd, yyyy" }) {
   return formatDate(date, format);
 }
+
+export function ValidationError(props) {
+  if (props.message) {
+    return <div className="error">{props.message}</div>;
+  }
+  return <></>;
+}
+
+export function Required({ className, ...props }) {
+  return (
+    <span className={["Required", className].join(" ")} {...props}>
+      &#42;
+    </span>
+  );
+}

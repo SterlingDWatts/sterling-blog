@@ -51,9 +51,9 @@ BlogListItem.propTypes = {
       return new Error(`${propName} is required in ${componentName}`);
     }
 
-    if (typeof prop != "string") {
+    if (typeof prop != "object") {
       return new Error(
-        `Invalid prop, ${propName} is expected to be a string in ${componentName}. ${typeof prop} found.`
+        `Invalid prop, ${propName} is expected to be a object in ${componentName}. ${typeof prop} found.`
       );
     }
 

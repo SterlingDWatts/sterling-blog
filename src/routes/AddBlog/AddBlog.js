@@ -3,6 +3,7 @@ import cuid from "cuid";
 
 // import files for froala editor
 import FroalaEditor from "react-froala-wysiwyg";
+import FroalaEditorImg from "react-froala-wysiwyg/FroalaEditorImg";
 import "froala-editor/js/froala_editor.pkgd.min.js";
 import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/froala_editor.pkgd.min.css";
@@ -27,6 +28,7 @@ import "froala-editor/js/plugins/paragraph_format.min.js";
 // Adds quote option
 import "froala-editor/js/plugins/quote.min.js";
 
+import { ValidationError, Required } from "../../components/Utils/Utils";
 import BlogListContext from "../../contexts/BlogListContext";
 import "./AddBlog.css";
 
@@ -39,10 +41,12 @@ class AddBlog extends Component {
       touched: false
     },
     picture: {
-      value: "",
+      model: {
+        src: "https://live.staticflickr.com/65535/49645116543_0c7e1e3f1e_c.jpg"
+      },
       touched: false
     },
-    model: {
+    content: {
       value: "",
       touched: false
     }
@@ -56,42 +60,87 @@ class AddBlog extends Component {
 
   handlePictureChange = picture => {
     this.setState({
-      picture: { value: picture, touched: true }
+      picture: { model: picture, touched: true }
     });
   };
 
-  handleModelChange = model => {
+  handleContentChange = content => {
     this.setState({
-      model: { value: model, touched: true }
+      content: { value: content, touched: true }
     });
   };
+
+  validateTitle() {
+    const title = this.state.title.value.trim();
+    const wordsArray = title.split(" ");
+    if (title.length === 0) {
+      return "Title is required.";
+    } else if (title.length < 7 || title.length > 80) {
+      return "Title must be between 7 and 80 characters.";
+    } else if (wordsArray.length < 3) {
+      return "Title must have at least three words.";
+    }
+  }
+
+  validatePicture() {
+    if (!this.state.picture.touched) {
+      return "Picture is required";
+    } else if (
+      this.state.picture.model.src.length === 0 ||
+      !this.state.picture.model.src
+    ) {
+      return "Picture is required";
+    }
+  }
+
+  validateContent() {
+    const content = this.state.content.value;
+    const wordArray = content.split(" ");
+    if (content.length === 0) {
+      return "Content is required";
+    } else if (wordArray.length < 50) {
+      return "Content must be at least 50 words";
+    }
+  }
 
   handleSubmit = e => {
     e.preventDefault();
-    const { title, picture, model } = this.state;
+    const { title, picture, content } = this.state;
     const blog = {
       id: cuid(),
       title: title.value,
-      squarePic: picture.value,
-      longPic: picture.value,
-      content: model.value,
+      squarePic: picture.model.src,
+      longPic: picture.model.src,
+      content: content.value,
       author: "Sterling Watts",
       date: new Date(),
       views: 0
     };
     this.setState({
       title: { value: "", touched: false },
-      picture: { value: "", touched: false },
-      model: { value: "", touched: false }
+      picture: { model: {}, touched: false },
+      content: { value: "", touched: false }
     });
     this.context.addBlog(blog);
+    this.props.history.push("/blogs");
   };
 
   render() {
+    const titleError = this.validateTitle();
+    const pictureError = this.validatePicture();
+    const contentError = this.validateContent();
     return (
       <form className="AddBlog" onSubmit={e => this.handleSubmit(e)}>
+        <h2>Login</h2>
+        <div className="hint">
+          <Required /> required fields
+        </div>
         <div className="AddBlog__title">
-          <label htmlFor="title">Title: </label>
+          <label htmlFor="title">
+            Title
+            {"  "}
+            <Required />
+          </label>
           <input
             type="text"
             name="title"
@@ -100,37 +149,56 @@ class AddBlog extends Component {
             value={this.state.title.value}
             onChange={e => this.handleTitleChange(e.target.value)}
           />
+          {this.state.title.touched && <ValidationError message={titleError} />}
         </div>
         <div className="AddBlog__picture">
-          <label htmlFor="picture">Url for Picture: </label>
-          <input
-            type="url"
-            name="picture"
-            id="picture"
-            required
-            value={this.state.picture.value}
-            onChange={e => this.handlePictureChange(e.target.value)}
+          <label htmlFor="picture">
+            Picture
+            {"  "}
+            <Required />
+          </label>
+          <FroalaEditorImg
+            model={this.state.picture.model}
+            onModelChange={this.handlePictureChange}
+            config={{
+              imageEditButtons: ["imageReplace"]
+            }}
           />
+          {this.state.picture.touched && (
+            <ValidationError message={pictureError} />
+          )}
         </div>
         <div className="AddBlog__content">
+          <label>
+            Content
+            {"  "}
+            <Required />
+          </label>
           <FroalaEditor
-            name="content"
-            id="content"
             tag="textarea"
-            model={this.state.model.value}
-            onModelChange={this.handleModelChange}
+            id="content"
+            model={this.state.content.value}
+            onModelChange={this.handleContentChange}
             config={{
               initOnClick: true,
               placeholderText: "Edit Blog Content",
               charCounterCount: true,
-              fontSizeSelection: true,
+              fontSizeSelection: false,
               fontSizeDefaultSelection: "16",
               attribution: false
             }}
           />
+          {this.state.content.touched && (
+            <ValidationError message={contentError} />
+          )}
         </div>
         <div className="AddBlog__buttons">
-          <button type="submit">Submit</button>
+          <button
+            type="submit"
+            disabled={this.validateTitle() || this.validatePicture()}
+          >
+            Submit
+          </button>
           <button>Cancel</button>
         </div>
       </form>
