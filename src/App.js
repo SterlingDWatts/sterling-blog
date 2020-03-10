@@ -7,9 +7,17 @@ import BlogPage from "./routes/BlogPage/BlogPage";
 import LoginForm from "./components/LoginForm/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm/CreateAccountForm";
 import AddBlog from "./routes/AddBlog/AddBlog";
+import BlogListContext from "./contexts/BlogListContext";
+import blogs from "./blogs-store";
 import "./App.css";
 
 class App extends Component {
+  static contextType = BlogListContext;
+
+  componentDidMount() {
+    this.context.setBlogList(blogs);
+  }
+
   render() {
     return (
       <div className="App">

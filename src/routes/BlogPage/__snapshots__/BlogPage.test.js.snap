@@ -4,48 +4,6 @@ exports[`BlogPage Component renders the UI as expected 1`] = `
 <div
   className="BlogPage"
 >
-  <main
-    className="BlogBody"
-  >
-    <header>
-      <h2
-        className="BlogBody__title"
-      >
-        Maintaining Prettier Code Using... Prettier.
-      </h2>
-    </header>
-    <div
-      className="BlogBody__pic"
-      style={
-        Object {
-          "backgroundImage": "url('https://picsum.photos/seed/three/900/510')",
-        }
-      }
-    />
-    <div
-      className="BlogBody__date_and_author"
-    >
-      <div
-        className="BlogBody__date"
-      >
-        December 22, 2019
-      </div>
-      <div
-        className="BlogBody__author"
-      >
-        Brandon Hutchison
-      </div>
-    </div>
-    <div
-      className="BlogBody__content"
-    >
-      Mauris ut nibh non nisl ultricies cursus. Praesent ex magna, volutpat et justo id, lobortis condimentum arcu. Curabitur hendrerit dui augue, id faucibus neque dictum nec. Nunc interdum tellus at ipsum tristique, sed rutrum urna dictum. Donec dapibus placerat sapien sed fringilla. Vivamus iaculis dignissim dapibus. Fusce consequat est sed velit euismod finibus. Aenean laoreet laoreet felis, ut pellentesque elit placerat quis. Vestibulum tellus lacus, placerat eget ligula quis, eleifend blandit neque. Vivamus eu odio vel mauris ornare tempus. Morbi sed ornare turpis. Aenean placerat ipsum at viverra efficitur. Suspendisse vitae tellus neque.
-Nunc id pretium nulla. Aliquam ultricies est id lorem iaculis ullamcorper. In eu libero nibh. Cras mollis ac est vitae scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus feugiat quam at sem consequat, nec luctus neque dapibus. Donec dapibus, ante non dapibus accumsan, ligula ante facilisis nisl, sit amet egestas ligula leo ut lorem.
-Morbi in augue metus. Donec pellentesque est lacus, in elementum nisi vestibulum et. Phasellus volutpat ligula eu ex faucibus tincidunt. Pellentesque nec lectus in orci vehicula rutrum dignissim eget turpis. In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce mi mauris, condimentum et fringilla ac, pharetra a turpis. Phasellus auctor molestie diam, eu ullamcorper nisl mollis sed. Aenean non pharetra ante, a mollis urna. Nulla sit amet sapien congue, fringilla mauris quis, vestibulum leo. Quisque eget porta mi. Maecenas consectetur tortor sit amet congue lobortis. Proin et erat nulla. Cras sem eros, imperdiet ut sollicitudin vel, gravida sit amet justo. Nam eleifend maximus efficitur. Praesent sem dui, eleifend vitae eros consequat, semper egestas dui.
-Sed eu neque et sapien facilisis ultricies eget sit amet risus. Phasellus dictum rutrum nisl at bibendum. Aliquam cursus semper odio sit amet faucibus. Quisque in fringilla dui. Aenean in ornare justo. In ullamcorper sollicitudin nisi, nec fringilla ante tempus eget. Nullam in leo ex.
-Mauris eget porttitor ipsum. Aenean viverra interdum sem, quis imperdiet urna sollicitudin eget. Cras nec magna quis felis congue tempus. Nulla auctor condimentum tortor. Curabitur a elit a urna mattis condimentum at id est. Aliquam ac nisi id dui fermentum sagittis vel ac metus. Pellentesque malesuada nisi et sapien luctus dapibus. Fusce venenatis, leo non mollis accumsan, justo sem interdum magna, non fermentum metus lacus ac ipsum. Nam vel metus a dolor pellentesque varius. Ut at erat urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </div>
-  </main>
   <section
     className="BlogPage__blog_list"
   >
@@ -54,96 +12,7 @@ Mauris eget porttitor ipsum. Aenean viverra interdum sem, quis imperdiet urna so
     </h3>
     <ul
       className="BlogList"
-    >
-      <li
-        className="BlogListItem"
-      >
-        <a
-          className="BlogListItem__title_link"
-          href="/blogs/1"
-          onClick={[Function]}
-        >
-          <div
-            className="BlogListItem__info"
-          >
-            <h3
-              className="BlogListItem__title"
-            >
-              Maintaining Prettier Code Using... Prettier.
-            </h3>
-            <div
-              className="BlogListItem__date_and_length"
-            >
-              December 22, 2019 · 9 min read
-            </div>
-            <div
-              className="BlogListItem__author"
-            >
-              Brandon Hutchison
-            </div>
-            <div
-              className="BlogListItem__line"
-            />
-          </div>
-          <div
-            className="BlogListItem__pic_holder"
-          >
-            <div
-              className="BlogListItem__pic"
-              style={
-                Object {
-                  "backgroundImage": "url('https://picsum.photos/seed/three/255/255')",
-                }
-              }
-            />
-          </div>
-        </a>
-      </li>
-      <li
-        className="BlogListItem"
-      >
-        <a
-          className="BlogListItem__title_link"
-          href="/blogs/2"
-          onClick={[Function]}
-        >
-          <div
-            className="BlogListItem__info"
-          >
-            <h3
-              className="BlogListItem__title"
-            >
-              This is the Title of This Blog
-            </h3>
-            <div
-              className="BlogListItem__date_and_length"
-            >
-              August 15, 2019 · 10 min read
-            </div>
-            <div
-              className="BlogListItem__author"
-            >
-              Tom Terlecki
-            </div>
-            <div
-              className="BlogListItem__line"
-            />
-          </div>
-          <div
-            className="BlogListItem__pic_holder"
-          >
-            <div
-              className="BlogListItem__pic"
-              style={
-                Object {
-                  "backgroundImage": "url('https://picsum.photos/seed/2/255/255')",
-                }
-              }
-            />
-          </div>
-        </a>
-      </li>
-    </ul>
+    />
   </section>
 </div>
 `;

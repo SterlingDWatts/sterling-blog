@@ -2,20 +2,29 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import BlogBody from "../../components/BlogBody/BlogBody";
 import BlogList from "../../components/BlogList/BlogList";
-import blogs from "../../blogs-store";
+import BlogListContext from "../../contexts/BlogListContext";
 import "./BlogPage.css";
 
 class BlogPage extends Component {
+  static defaultProps = {
+    match: { params: {} }
+  };
+
+  static contextType = BlogListContext;
+
   render() {
-    const blog = blogs.filter(
-      b => b.id === Number(this.props.match.params.blogId)
+    const blog = this.context.blogList.find(
+      b => b.id === this.props.match.params.blogId
     );
+    const recentBlogs = this.context.blogList
+      .filter(b => b.id !== this.props.match.params.blogId)
+      .slice(0, 2);
     return (
       <div className="BlogPage">
-        <BlogBody {...blog[0]} />
+        {blog && <BlogBody {...blog} />}
         <section className="BlogPage__blog_list">
           <h3>Recent Blogs</h3>
-          <BlogList blogs={blogs.slice(0, 2)} />
+          {recentBlogs && <BlogList blogs={recentBlogs} />}
         </section>
       </div>
     );

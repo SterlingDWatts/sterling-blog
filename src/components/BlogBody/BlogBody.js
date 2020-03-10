@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { NiceDate, BlogContent } from "../Utils/Utils";
 import "./BlogBody.css";
 
 class BlogBody extends Component {
@@ -14,17 +15,22 @@ class BlogBody extends Component {
           style={{ backgroundImage: "url('" + this.props.longPic + "')" }}
         ></div>
         <div className="BlogBody__date_and_author">
-          <div className="BlogBody__date">{this.props.date}</div>
+          <div className="BlogBody__date">
+            <NiceDate date={this.props.date} />
+          </div>
           <div className="BlogBody__author">{this.props.author}</div>
         </div>
-        <div className="BlogBody__content">{this.props.content}</div>
+        <BlogContent
+          className="BlogBody__content"
+          content={this.props.content}
+        />
       </main>
     );
   }
 }
 
 BlogBody.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   views: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,

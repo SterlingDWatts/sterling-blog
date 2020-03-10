@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddBlog Component renders the UI as expected 1`] = `
+exports[`AddBlog Component renders empty when no inputs 1`] = `
 <form
   className="AddBlog"
+  onSubmit={[Function]}
 >
   <div
     className="AddBlog__title"
@@ -15,8 +16,10 @@ exports[`AddBlog Component renders the UI as expected 1`] = `
     <input
       id="title"
       name="title"
+      onChange={[Function]}
       required={true}
       type="text"
+      value=""
     />
   </div>
   <div
@@ -30,22 +33,31 @@ exports[`AddBlog Component renders the UI as expected 1`] = `
     <input
       id="picture"
       name="picture"
+      onChange={[Function]}
       required={true}
       type="url"
+      value=""
     />
   </div>
   <div
     className="AddBlog__content"
   >
-    <label
-      htmlFor="content"
-    >
-      Content: 
-    </label>
-    <textarea
+    <t
+      config={
+        Object {
+          "attribution": false,
+          "charCounterCount": true,
+          "fontSizeDefaultSelection": "16",
+          "fontSizeSelection": true,
+          "initOnClick": true,
+          "placeholderText": "Edit Blog Content",
+        }
+      }
       id="content"
+      model=""
       name="content"
-      required={true}
+      onModelChange={[Function]}
+      tag="textarea"
     />
   </div>
   <div
