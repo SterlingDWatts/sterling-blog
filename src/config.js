@@ -1,3 +1,3 @@
 export default {
-  FROALA_API_KEY: process.env.FROALA_API_KEY
+  FROALA_API_KEY: process.env.REACT_APP_FROALA_API_KEY
 };
