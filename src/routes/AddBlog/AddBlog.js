@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import cuid from "cuid";
+import config from "../../config";
 
 // import files for froala editor
 import FroalaEditor from "react-froala-wysiwyg";
@@ -55,7 +56,8 @@ class AddBlog extends Component {
     content: {
       value: "",
       touched: false
-    }
+    },
+    id: cuid()
   };
 
   handleTitleChange = title => {
@@ -111,9 +113,9 @@ class AddBlog extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { title, picture, content } = this.state;
+    const { title, picture, content, id } = this.state;
     const blog = {
-      id: cuid(),
+      id: id,
       title: title.value,
       squarePic: picture.model.src,
       longPic: picture.model.src,
@@ -125,7 +127,8 @@ class AddBlog extends Component {
     this.setState({
       title: { value: "", touched: false },
       picture: { model: {}, touched: false },
-      content: { value: "", touched: false }
+      content: { value: "", touched: false },
+      id: cuid()
     });
     this.context.addBlog(blog);
     this.props.history.push("/blogs");
@@ -190,7 +193,10 @@ class AddBlog extends Component {
               charCounterCount: true,
               fontSizeSelection: false,
               fontSizeDefaultSelection: "16",
-              attribution: false
+              attribution: false,
+              apiKey: config.FROALA_KEY,
+              app: "sterling-blog",
+              docId: this.state.id
             }}
           />
           {this.state.content.touched && (

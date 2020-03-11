@@ -4,6 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
+  background-color: white;
 }
 
 .NavBar__container {
@@ -15,6 +16,12 @@
   width: 100%;
   max-width: 944px;
   margin: 0 auto;
+}
+
+.NavBar__marque a {
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
 }
 
 .NavBar__links_big {
