@@ -4,116 +4,185 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
 <form
   className="CreateAccountForm"
 >
+  <h2>
+    Create Account
+  </h2>
   <div
-    className="CreateAccountForm__first_name"
+    className="hint"
+  >
+    <span
+      className="Required "
+    >
+      *
+    </span>
+     required fields
+  </div>
+  <div
+    className="LabelGroup CreateAccountForm__first_name"
   >
     <label
+      className="Label "
       htmlFor="first_name"
     >
-      First Name: 
+      First Name 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="first_name"
       name="first_name"
+      onChange={[Function]}
       required={true}
       type="text"
+      value=""
     />
   </div>
   <div
-    className="CreateAccountForm__last_name"
+    className="LabelGroup CreateAccountForm__last_name"
   >
     <label
+      className="Label "
       htmlFor="last_name"
     >
-      Last Name: 
+      Last Name 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="last_name"
       name="last_name"
+      onChange={[Function]}
       required={true}
       type="text"
+      value=""
     />
   </div>
   <div
-    className="CreateAccountForm__username"
+    className="LabelGroup CreateAccountForm__username"
   >
     <label
+      className="Label "
       htmlFor="username"
     >
-      Username: 
+      Username 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="username"
       name="username"
+      onChange={[Function]}
       required={true}
       type="text"
+      value=""
     />
   </div>
   <div
-    className="CreateAccountForm__email"
+    className="LabelGroup CreateAccountForm__email"
   >
     <label
+      className="Label "
       htmlFor="email"
     >
-      Email: 
+      Email 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="email"
       name="email"
+      onChange={[Function]}
       required={true}
       type="email"
+      value=""
     />
   </div>
   <div
-    className="CreateAccountForm__confirm_email"
+    className="LabelGroup CreateAccountForm__confirm_email"
   >
     <label
+      className="Label "
       htmlFor="confirm_email"
     >
-      Confirm Email: 
+      Confirm Email 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="confirm_email"
       name="confirm_email"
+      onChange={[Function]}
       required={true}
       type="email"
+      value=""
     />
   </div>
   <div
-    className="CreateAccountForm__password"
+    className="LabelGroup CreateAccountForm__password"
   >
     <label
+      className="Label "
       htmlFor="password"
     >
-      Password: 
+      Password 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="password"
       name="password"
+      onChange={[Function]}
       required={true}
       type="password"
+      value=""
     />
   </div>
   <div
-    className="CreateAccountForm__confirm_password"
+    className="LabelGroup CreateAccountForm__confirm_password"
   >
     <label
+      className="Label "
       htmlFor="confirm_password"
     >
-      Confirm Password: 
+      Confirm Password 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="confirm_password"
       name="confirm_password"
+      onChange={[Function]}
       required={true}
       type="password"
+      value=""
     />
   </div>
   <div
@@ -121,15 +190,10 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
   >
     <button
       className="Button "
+      disabled="First Name is required"
       type="submit"
     >
       Create Account
-    </button>
-    <button
-      className="Button "
-      type="button"
-    >
-      Login
     </button>
   </div>
 </form>

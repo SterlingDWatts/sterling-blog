@@ -10,9 +10,4 @@ describe("AddBlog Component", () => {
     ReactDOM.render(<AddBlog />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-
-  it("renders empty when no inputs", () => {
-    const wrapper = shallow(<AddBlog />);
-    expect(toJson(wrapper)).toMatchSnapshot();
-  });
 });

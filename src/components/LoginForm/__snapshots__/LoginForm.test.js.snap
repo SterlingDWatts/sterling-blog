@@ -4,52 +4,86 @@ exports[`LoginForm Component renders the UI as expected 1`] = `
 <form
   className="LoginForm"
 >
+  <h2>
+    Login
+  </h2>
   <div
-    className="LoginForm__username"
+    className="hint"
+  >
+    <span
+      className="Required "
+    >
+      *
+    </span>
+     required fields
+  </div>
+  <div
+    className="LabelGroup LoginForm__username"
   >
     <label
+      className="Label "
       htmlFor="username"
     >
-      Username: 
+      Username 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="username"
       name="username"
+      onChange={[Function]}
       required={true}
       type="text"
+      value=""
     />
+    <div
+      className="ValidationError"
+    >
+      Username is required
+    </div>
   </div>
   <div
-    className="LoginForm__password"
+    className="LabelGroup LoginForm__password"
   >
     <label
+      className="Label "
       htmlFor="password"
     >
-      Password: 
+      Password 
+      <span
+        className="Required "
+      >
+        *
+      </span>
     </label>
     <input
       className="Input "
       id="password"
       name="password"
+      onChange={[Function]}
       required={true}
       type="password"
+      value=""
     />
+    <div
+      className="ValidationError"
+    >
+      Password is required
+    </div>
   </div>
   <div
     className="LoginForm__buttons"
   >
     <button
       className="Button "
+      disabled="Username is required"
       type="submit"
     >
       Login
-    </button>
-    <button
-      className="Button "
-      type="button"
-    >
-      Create Account
     </button>
   </div>
 </form>

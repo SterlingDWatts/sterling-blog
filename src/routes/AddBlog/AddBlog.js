@@ -194,9 +194,7 @@ class AddBlog extends Component {
               fontSizeSelection: false,
               fontSizeDefaultSelection: "16",
               attribution: false,
-              apiKey: config.FROALA_KEY,
-              app: "sterling-blog",
-              docId: this.state.id
+              key: config.FROALA_KEY
             }}
           />
           {this.state.content.touched && (
