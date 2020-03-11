@@ -6,14 +6,42 @@
 .ValidationError {
   color: #ca1551;
   margin-top: 8px;
+  max-width: 288px;
+}
+
+.NoError {
+  height: 16px;
+  margin-top: 8px;
 }
 
 .Label {
-  margin-bottom: 8px;
+  position: relative;
+  width: max-content;
+  top: 9px;
+  left: 12px;
+  background-color: white;
+  padding: 0px 4px;
+  color: grey;
+  z-index: 1;
 }
 
 .LabelGroup {
   display: flex;
   flex-direction: column;
-  margin-bottom: 32px;
+  width: max-content;
+  margin: 0px auto 32px;
+}
+
+.Input {
+  border: 1px solid rgb(218, 220, 224);
+  border-radius: 5px;
+  padding: 16px 13px;
+  font-size: 16px;
+  width: 288px;
+}
+
+.Input:focus,
+input:active {
+  border: 2px solid rgba(66, 133, 244);
+  padding: 15px 12px;
 }

@@ -33,10 +33,14 @@ export function NiceDate({ date, format = "MMMM dd, yyyy" }) {
 }
 
 export function ValidationError(props) {
-  if (props.message) {
-    return <div className="ValidationError">{props.message}</div>;
+  if (props.message && props.touched) {
+    return (
+      <div className="ValidationError">
+        <p>{props.message}</p>
+      </div>
+    );
   }
-  return <></>;
+  return <div className="NoError"> </div>;
 }
 
 export function Required({ className, ...props }) {

@@ -41,9 +41,9 @@ exports[`LoginForm Component renders the UI as expected 1`] = `
       value=""
     />
     <div
-      className="ValidationError"
+      className="NoError"
     >
-      Username is required
+       
     </div>
   </div>
   <div
@@ -70,9 +70,9 @@ exports[`LoginForm Component renders the UI as expected 1`] = `
       value=""
     />
     <div
-      className="ValidationError"
+      className="NoError"
     >
-      Password is required
+       
     </div>
   </div>
   <div

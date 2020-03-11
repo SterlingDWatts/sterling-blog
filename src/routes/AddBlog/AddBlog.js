@@ -32,9 +32,7 @@ import "froala-editor/js/plugins/quote.min.js";
 import {
   ValidationError,
   Required,
-  Label,
-  Button,
-  LabelGroup
+  Button
 } from "../../components/Utils/Utils";
 import BlogListContext from "../../contexts/BlogListContext";
 import "./AddBlog.css";
@@ -144,12 +142,12 @@ class AddBlog extends Component {
         <div className="hint">
           <Required /> required fields
         </div>
-        <LabelGroup className="AddBlog__title">
-          <Label htmlFor="title">
+        <div className="AddBlog__title">
+          <label htmlFor="title">
             Title
             {"  "}
             <Required />
-          </Label>
+          </label>
           <input
             type="text"
             name="title"
@@ -159,14 +157,17 @@ class AddBlog extends Component {
             onChange={e => this.handleTitleChange(e.target.value)}
             placeholder="Edit title"
           />
-          {this.state.title.touched && <ValidationError message={titleError} />}
-        </LabelGroup>
-        <LabelGroup className="AddBlog__picture">
-          <Label htmlFor="picture">
+          <ValidationError
+            message={titleError}
+            touched={this.state.title.touched}
+          />
+        </div>
+        <div className="AddBlog__picture">
+          <label htmlFor="picture">
             Picture
             {"  "}
             <Required />
-          </Label>
+          </label>
           <FroalaEditorImg
             model={this.state.picture.model}
             onModelChange={this.handlePictureChange}
@@ -175,13 +176,13 @@ class AddBlog extends Component {
             }}
           />
           <ValidationError message={pictureError} />
-        </LabelGroup>
-        <LabelGroup className="AddBlog__content">
-          <Label>
+        </div>
+        <div className="AddBlog__content">
+          <label>
             Content
             {"  "}
             <Required />
-          </Label>
+          </label>
           <FroalaEditor
             tag="textarea"
             id="content"
@@ -194,13 +195,14 @@ class AddBlog extends Component {
               fontSizeSelection: false,
               fontSizeDefaultSelection: "16",
               attribution: false,
-              key: config.FROALA_KEY
+              key: config.API_KEY
             }}
           />
-          {this.state.content.touched && (
-            <ValidationError message={contentError} />
-          )}
-        </LabelGroup>
+          <ValidationError
+            message={contentError}
+            touched={this.state.content.touched}
+          />
+        </div>
         <div className="AddBlog__buttons">
           <Button
             type="submit"

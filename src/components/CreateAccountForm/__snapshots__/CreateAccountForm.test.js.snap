@@ -40,6 +40,11 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       type="text"
       value=""
     />
+    <div
+      className="NoError"
+    >
+       
+    </div>
   </div>
   <div
     className="LabelGroup CreateAccountForm__last_name"
@@ -64,6 +69,11 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       type="text"
       value=""
     />
+    <div
+      className="NoError"
+    >
+       
+    </div>
   </div>
   <div
     className="LabelGroup CreateAccountForm__username"
@@ -88,6 +98,11 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       type="text"
       value=""
     />
+    <div
+      className="NoError"
+    >
+       
+    </div>
   </div>
   <div
     className="LabelGroup CreateAccountForm__email"
@@ -112,6 +127,11 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       type="email"
       value=""
     />
+    <div
+      className="NoError"
+    >
+       
+    </div>
   </div>
   <div
     className="LabelGroup CreateAccountForm__confirm_email"
@@ -136,6 +156,11 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       type="email"
       value=""
     />
+    <div
+      className="NoError"
+    >
+       
+    </div>
   </div>
   <div
     className="LabelGroup CreateAccountForm__password"
@@ -160,6 +185,11 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       type="password"
       value=""
     />
+    <div
+      className="NoError"
+    >
+       
+    </div>
   </div>
   <div
     className="LabelGroup CreateAccountForm__confirm_password"
@@ -184,6 +214,11 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
       type="password"
       value=""
     />
+    <div
+      className="NoError"
+    >
+       
+    </div>
   </div>
   <div
     className="CreateAccountForm__buttons"

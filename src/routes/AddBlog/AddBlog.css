@@ -15,3 +15,21 @@
   margin: 0px 0px 32px;
   text-align: center;
 }
+
+.AddBlog__title,
+.AddBlog__picture,
+.AddBlog__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddBlog label {
+  margin-bottom: 8px;
+  margin-left: 16px;
+}
+
+.AddBlog input {
+  border: 1px solid rgb(218, 220, 224);
+  padding: 16px 13px;
+  border-radius: 5px;
+}

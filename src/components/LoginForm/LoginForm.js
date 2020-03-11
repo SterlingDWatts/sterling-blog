@@ -41,6 +41,7 @@ class LoginForm extends Component {
 
   validateUsername = () => {
     const username = this.state.username.value;
+    const USERNAME_REGEX = /([A-Za-z0-9.\-_]+)/;
     if (username.length === 0) {
       return "Username is required";
     } else if (username.length < 6 || username.length > 32) {
@@ -85,7 +86,10 @@ class LoginForm extends Component {
             value={this.state.username.value}
             onChange={e => this.handleUsernameChange(e.target.value)}
           />
-          <ValidationError message={usernameError} />
+          <ValidationError
+            message={usernameError}
+            touched={this.state.username.touched}
+          />
         </LabelGroup>
         <LabelGroup className="LoginForm__password">
           <Label htmlFor="password">
@@ -99,7 +103,10 @@ class LoginForm extends Component {
             value={this.state.password.value}
             onChange={e => this.handlePasswordChange(e.target.value)}
           />
-          <ValidationError message={passwordError} />
+          <ValidationError
+            message={passwordError}
+            touched={this.state.password.touched}
+          />
         </LabelGroup>
         <div className="LoginForm__buttons">
           <Button type="submit" disabled={usernameError || passwordError}>

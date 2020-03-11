@@ -187,9 +187,10 @@ class CreateAccountForm extends Component {
             value={this.state.firstName.value}
             onChange={e => this.handleFirstNameChange(e.target.value)}
           />
-          {this.state.firstName.touched && (
-            <ValidationError message={firstNameError} />
-          )}
+          <ValidationError
+            message={firstNameError}
+            touched={this.state.firstName.touched}
+          />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__last_name">
           <Label htmlFor="last_name">
@@ -203,9 +204,10 @@ class CreateAccountForm extends Component {
             value={this.state.lastName.value}
             onChange={e => this.handleLastNameChange(e.target.value)}
           />
-          {this.state.lastName.touched && (
-            <ValidationError message={lastNameError} />
-          )}
+          <ValidationError
+            message={lastNameError}
+            touched={this.state.lastName.touched}
+          />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__username">
           <Label htmlFor="username">
@@ -219,9 +221,10 @@ class CreateAccountForm extends Component {
             value={this.state.username.value}
             onChange={e => this.handleUsernameChange(e.target.value)}
           />
-          {this.state.username.touched && (
-            <ValidationError message={usernameError} />
-          )}
+          <ValidationError
+            message={usernameError}
+            touched={this.state.username.touched}
+          />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__email">
           <Label htmlFor="email">
@@ -235,7 +238,10 @@ class CreateAccountForm extends Component {
             value={this.state.email.value}
             onChange={e => this.handleEmailChange(e.target.value)}
           />
-          {this.state.email.touched && <ValidationError message={emailError} />}
+          <ValidationError
+            message={emailError}
+            touched={this.state.email.touched}
+          />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__confirm_email">
           <Label htmlFor="confirm_email">
@@ -249,9 +255,10 @@ class CreateAccountForm extends Component {
             value={this.state.confirmEmail.value}
             onChange={e => this.handleConfirmEmailChange(e.target.value)}
           />
-          {this.state.confirmEmail.touched && (
-            <ValidationError message={confirmEmailError} />
-          )}
+          <ValidationError
+            message={confirmEmailError}
+            touched={this.state.confirmEmail.touched}
+          />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__password">
           <Label htmlFor="password">
@@ -265,9 +272,10 @@ class CreateAccountForm extends Component {
             value={this.state.password.value}
             onChange={e => this.handlePasswordChange(e.target.value)}
           />
-          {this.state.password.touched && (
-            <ValidationError message={passwordError} />
-          )}
+          <ValidationError
+            message={passwordError}
+            touched={this.state.password.touched}
+          />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__confirm_password">
           <Label htmlFor="confirm_password">
@@ -281,9 +289,10 @@ class CreateAccountForm extends Component {
             value={this.state.confirmPassword.value}
             onChange={e => this.handleConfirmPasswordChange(e.target.value)}
           />
-          {this.state.confirmPassword.touched && (
-            <ValidationError message={confirmPasswordError} />
-          )}
+          <ValidationError
+            message={confirmPasswordError}
+            touched={this.state.confirmPassword.touched}
+          />
         </LabelGroup>
         <div className="CreateAccountForm__buttons">
           <Button
