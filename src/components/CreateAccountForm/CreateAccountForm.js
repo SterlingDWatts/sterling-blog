@@ -89,7 +89,7 @@ class CreateAccountForm extends Component {
     if (username.length === 0) {
       return "Username is required";
     } else if (username.length < 6 || username.length > 32) {
-      return "Username must be between 6 and 64 characters";
+      return "Username must be between 6 and 32 characters";
     } else if (username.startsWith(" ") || username.endsWith(" ")) {
       return "Username cannot start or end with an empty space";
     } else if (!USERNAME_REGEX.test(username)) {

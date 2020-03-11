@@ -1,3 +1,3 @@
 export default {
-  FROALA_KEY: process.env.FROALA_KEY
+  API_KEY: process.env.FROALA_API_KEY
 };

@@ -43,13 +43,24 @@ class LoginForm extends Component {
     const username = this.state.username.value;
     if (username.length === 0) {
       return "Username is required";
+    } else if (username.length < 6 || username.length > 32) {
+      return "Username must be between 6 and 32 characters";
+    } else if (username.startsWith(" ") || username.endsWith(" ")) {
+      return "Username cannot start or end with an empty space";
+    } else if (!USERNAME_REGEX.test(username)) {
+      return "Username must only include letters, numbers, ., -, and _";
     }
   };
 
   validatePassword = () => {
     const password = this.state.password.value;
+    const PASSWORD_REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\S]+/;
     if (password.length === 0) {
       return "Password is required";
+    } else if (!PASSWORD_REGEX.test(password)) {
+      return "Password must include at least upper case, lower case, number, and special character";
+    } else if (password.startsWith(" ") || password.endsWith(" ")) {
+      return "Password must not start or end with an empty space";
     }
   };
 
