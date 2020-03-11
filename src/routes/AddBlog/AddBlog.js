@@ -28,7 +28,13 @@ import "froala-editor/js/plugins/paragraph_format.min.js";
 // Adds quote option
 import "froala-editor/js/plugins/quote.min.js";
 
-import { ValidationError, Required } from "../../components/Utils/Utils";
+import {
+  ValidationError,
+  Required,
+  Label,
+  Button,
+  LabelGroup
+} from "../../components/Utils/Utils";
 import BlogListContext from "../../contexts/BlogListContext";
 import "./AddBlog.css";
 
@@ -84,7 +90,7 @@ class AddBlog extends Component {
 
   validatePicture() {
     if (!this.state.picture.touched) {
-      return "Picture is required";
+      return "Please change picture";
     } else if (
       this.state.picture.model.src.length === 0 ||
       !this.state.picture.model.src
@@ -98,8 +104,8 @@ class AddBlog extends Component {
     const wordArray = content.split(" ");
     if (content.length === 0) {
       return "Content is required";
-    } else if (wordArray.length < 50) {
-      return "Content must be at least 50 words";
+    } else if (wordArray.length < 10) {
+      return "Content must be at least 10 words";
     }
   }
 
@@ -131,16 +137,16 @@ class AddBlog extends Component {
     const contentError = this.validateContent();
     return (
       <form className="AddBlog" onSubmit={e => this.handleSubmit(e)}>
-        <h2>Login</h2>
+        <h2>Create Blog</h2>
         <div className="hint">
           <Required /> required fields
         </div>
-        <div className="AddBlog__title">
-          <label htmlFor="title">
+        <LabelGroup className="AddBlog__title">
+          <Label htmlFor="title">
             Title
             {"  "}
             <Required />
-          </label>
+          </Label>
           <input
             type="text"
             name="title"
@@ -148,15 +154,16 @@ class AddBlog extends Component {
             required
             value={this.state.title.value}
             onChange={e => this.handleTitleChange(e.target.value)}
+            placeholder="Edit title"
           />
           {this.state.title.touched && <ValidationError message={titleError} />}
-        </div>
-        <div className="AddBlog__picture">
-          <label htmlFor="picture">
+        </LabelGroup>
+        <LabelGroup className="AddBlog__picture">
+          <Label htmlFor="picture">
             Picture
             {"  "}
             <Required />
-          </label>
+          </Label>
           <FroalaEditorImg
             model={this.state.picture.model}
             onModelChange={this.handlePictureChange}
@@ -164,16 +171,14 @@ class AddBlog extends Component {
               imageEditButtons: ["imageReplace"]
             }}
           />
-          {this.state.picture.touched && (
-            <ValidationError message={pictureError} />
-          )}
-        </div>
-        <div className="AddBlog__content">
-          <label>
+          <ValidationError message={pictureError} />
+        </LabelGroup>
+        <LabelGroup className="AddBlog__content">
+          <Label>
             Content
             {"  "}
             <Required />
-          </label>
+          </Label>
           <FroalaEditor
             tag="textarea"
             id="content"
@@ -181,7 +186,7 @@ class AddBlog extends Component {
             onModelChange={this.handleContentChange}
             config={{
               initOnClick: true,
-              placeholderText: "Edit Blog Content",
+              placeholderText: "Click to Edit Blog Content",
               charCounterCount: true,
               fontSizeSelection: false,
               fontSizeDefaultSelection: "16",
@@ -191,15 +196,15 @@ class AddBlog extends Component {
           {this.state.content.touched && (
             <ValidationError message={contentError} />
           )}
-        </div>
+        </LabelGroup>
         <div className="AddBlog__buttons">
-          <button
+          <Button
             type="submit"
             disabled={this.validateTitle() || this.validatePicture()}
           >
             Submit
-          </button>
-          <button>Cancel</button>
+          </Button>
+          <Button>Cancel</Button>
         </div>
       </form>
     );

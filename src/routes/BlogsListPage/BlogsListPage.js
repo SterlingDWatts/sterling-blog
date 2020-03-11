@@ -9,6 +9,7 @@ class BlogsListPage extends Component {
   render() {
     return (
       <div className="BlogsListPage">
+        <h2>Sterling | Blog</h2>
         <main>
           <BlogList blogs={this.context.blogList} />
         </main>

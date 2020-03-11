@@ -10,6 +10,14 @@ export function Button({ className, ...props }) {
   return <button className={["Button", className].join(" ")} {...props} />;
 }
 
+export function Label({ className, ...props }) {
+  return <label className={["Label", className].join(" ")} {...props} />;
+}
+
+export function LabelGroup({ className, ...props }) {
+  return <div className={["LabelGroup", className].join(" ")} {...props} />;
+}
+
 export function BlogContent({ content, className, ...props }) {
   return (
     <div
@@ -26,7 +34,7 @@ export function NiceDate({ date, format = "MMMM dd, yyyy" }) {
 
 export function ValidationError(props) {
   if (props.message) {
-    return <div className="error">{props.message}</div>;
+    return <div className="ValidationError">{props.message}</div>;
   }
   return <></>;
 }
