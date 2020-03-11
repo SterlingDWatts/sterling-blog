@@ -195,7 +195,7 @@ class AddBlog extends Component {
               fontSizeSelection: false,
               fontSizeDefaultSelection: "16",
               attribution: false,
-              key: config.API_KEY
+              key: config.FROALA_API_KEY
             }}
           />
           <ValidationError
