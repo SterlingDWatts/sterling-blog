@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
+import { NiceDate } from "../Utils/Utils";
 import "./BlogListItem.css";
 
 class BlogListItem extends Component {
@@ -17,7 +17,8 @@ class BlogListItem extends Component {
             <h3 className="BlogListItem__title">{this.props.title}</h3>
 
             <div className="BlogListItem__date_and_length">
-              {this.props.date + " · " + length + " min read"}
+              <NiceDate date={this.props.date} />
+              {" · " + length + " min read"}
             </div>
             <div className="BlogListItem__author">{this.props.author}</div>
             <div className="BlogListItem__line"></div>
@@ -50,9 +51,9 @@ BlogListItem.propTypes = {
       return new Error(`${propName} is required in ${componentName}`);
     }
 
-    if (typeof prop != "string") {
+    if (typeof prop != "object") {
       return new Error(
-        `Invalid prop, ${propName} is expected to be a string in ${componentName}. ${typeof prop} found.`
+        `Invalid prop, ${propName} is expected to be a object in ${componentName}. ${typeof prop} found.`
       );
     }
 

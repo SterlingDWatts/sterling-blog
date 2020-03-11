@@ -1,22 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddBlog Component renders the UI as expected 1`] = `
+exports[`AddBlog Component renders empty when no inputs 1`] = `
 <form
   className="AddBlog"
+  onSubmit={[Function]}
 >
+  <h2>
+    Login
+  </h2>
+  <div
+    className="hint"
+  >
+    <Required />
+     required fields
+  </div>
   <div
     className="AddBlog__title"
   >
     <label
       htmlFor="title"
     >
-      Title: 
+      Title
+        
+      <Required />
     </label>
     <input
       id="title"
       name="title"
+      onChange={[Function]}
       required={true}
       type="text"
+      value=""
     />
   </div>
   <div
@@ -25,33 +39,56 @@ exports[`AddBlog Component renders the UI as expected 1`] = `
     <label
       htmlFor="picture"
     >
-      Url for Picture: 
+      Picture
+        
+      <Required />
     </label>
-    <input
-      id="picture"
-      name="picture"
-      required={true}
-      type="url"
+    <t
+      config={
+        Object {
+          "imageEditButtons": Array [
+            "imageReplace",
+          ],
+        }
+      }
+      model={
+        Object {
+          "src": "https://live.staticflickr.com/65535/49645116543_0c7e1e3f1e_c.jpg",
+        }
+      }
+      onModelChange={[Function]}
     />
   </div>
   <div
     className="AddBlog__content"
   >
-    <label
-      htmlFor="content"
-    >
-      Content: 
+    <label>
+      Content
+        
+      <Required />
     </label>
-    <textarea
+    <t
+      config={
+        Object {
+          "attribution": false,
+          "charCounterCount": true,
+          "fontSizeDefaultSelection": "16",
+          "fontSizeSelection": false,
+          "initOnClick": true,
+          "placeholderText": "Edit Blog Content",
+        }
+      }
       id="content"
-      name="content"
-      required={true}
+      model=""
+      onModelChange={[Function]}
+      tag="textarea"
     />
   </div>
   <div
     className="AddBlog__buttons"
   >
     <button
+      disabled="Title is required."
       type="submit"
     >
       Submit

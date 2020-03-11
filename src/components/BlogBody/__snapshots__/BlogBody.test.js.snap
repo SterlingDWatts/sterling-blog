@@ -34,9 +34,12 @@ exports[`BlogBody Component renders the UI as expected 1`] = `
     </div>
   </div>
   <div
-    className="BlogBody__content"
-  >
-    test content
-  </div>
+    className="BlogContent BlogBody__content"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "test content",
+      }
+    }
+  />
 </main>
 `;

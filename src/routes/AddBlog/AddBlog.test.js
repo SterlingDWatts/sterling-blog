@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
+import toJson from "enzyme-to-json";
 import AddBlog from "./AddBlog";
 
 describe("AddBlog Component", () => {
@@ -10,8 +11,8 @@ describe("AddBlog Component", () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it("renders the UI as expected", () => {
-    const tree = renderer.create(<AddBlog />).toJSON();
-    expect(tree).toMatchSnapshot();
+  it("renders empty when no inputs", () => {
+    const wrapper = shallow(<AddBlog />);
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

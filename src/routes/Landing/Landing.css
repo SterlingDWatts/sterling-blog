@@ -1,4 +1,7 @@
 .Landing {
+  padding: 8px 16px;
+  max-width: 944px;
+  margin: 0 auto;
   line-height: 1.5em;
 }
 

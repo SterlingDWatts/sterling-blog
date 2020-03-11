@@ -7,14 +7,14 @@ import BlogBody from "./BlogBody";
 describe("BlogBody Component", () => {
   const blogs = [
     {
-      id: 1,
+      id: "1",
       title: "test title",
       content: "test content",
       author: "test author",
       longPic: "https://picsum.photos/seed/three/900/510",
       squarePic: "https://picsum.photos/seed/three/255/255",
       views: 8,
-      date: "December 22, 2019"
+      date: new Date("December 22, 2019")
     }
   ];
   it("renders without crashing", () => {

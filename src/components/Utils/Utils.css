@@ -1,0 +1,19 @@
+.Required {
+  color: #ca1551;
+  font-weight: 600;
+}
+
+.ValidationError {
+  color: #ca1551;
+  margin-top: 8px;
+}
+
+.Label {
+  margin-bottom: 8px;
+}
+
+.LabelGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}

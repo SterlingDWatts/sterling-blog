@@ -1,15 +1,17 @@
 .CreateAccountForm {
-  padding: 8px;
+  padding: 8px 16px;
+  max-width: 944px;
+  margin: 0 auto;
 }
 
-.CreateAccountForm__first_name,
-.CreateAccountForm__last_name,
-.CreateAccountForm__username,
-.CreateAccountForm__email,
-.CreateAccountForm__confirm_email,
-.CreateAccountForm__password,
-.CreateAccountForm__confirm_password {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 8px;
+.CreateAccountForm h2 {
+  margin: 32px 0px 0px;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.CreateAccountForm .hint {
+  margin: 0px 0px 32px;
+  text-align: center;
 }

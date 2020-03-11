@@ -1,5 +1,10 @@
 .NavBar {
-  border-bottom: 1px solid black;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
 }
 
 .NavBar__container {
@@ -13,6 +18,49 @@
   margin: 0 auto;
 }
 
-.NavBar__links a {
-  margin-left: 16px;
+.NavBar__marque a {
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+}
+
+.NavBar__links_big {
+  display: none;
+}
+
+.Button.hamburger_button,
+.Button.SideNav__hamburger_button {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 16px;
+}
+
+.SideNav {
+  width: 75vw;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: white;
+}
+
+.Button.SideNav__hamburger_button {
+  margin: 32px auto;
+}
+
+.SideNav a {
+  margin: 8px auto;
+  text-decoration: none;
+  color: black;
+}
+
+.NavBar--hidden {
+  top: -34px;
 }
