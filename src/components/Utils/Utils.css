@@ -54,3 +54,8 @@ input:active {
   padding: auto;
   font-size: 16px;
 }
+
+.Page {
+  min-height: 100vh;
+  padding: 51px 16px;
+}
