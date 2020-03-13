@@ -32,7 +32,8 @@ import "froala-editor/js/plugins/quote.min.js";
 import {
   ValidationError,
   Required,
-  Button
+  Button,
+  Page
 } from "../../components/Utils/Utils";
 import BlogListContext from "../../contexts/BlogListContext";
 import "./AddBlog.css";
@@ -137,6 +138,9 @@ class AddBlog extends Component {
     const pictureError = this.validatePicture();
     const contentError = this.validateContent();
     return (
+      <Page>
+
+      
       <form className="AddBlog" onSubmit={e => this.handleSubmit(e)}>
         <h2>Create Blog</h2>
         <div className="hint">
@@ -213,6 +217,7 @@ class AddBlog extends Component {
           <Button>Cancel</Button>
         </div>
       </form>
+      </Page>
     );
   }
 }

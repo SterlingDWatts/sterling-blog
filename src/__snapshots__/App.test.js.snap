@@ -67,8 +67,8 @@ exports[`App Component renders the UI as expected 1`] = `
       </button>
     </div>
   </nav>
-  <main
-    className="Landing"
+  <div
+    className="Page Landing"
   >
     <header>
       <h1>
@@ -129,6 +129,6 @@ exports[`App Component renders the UI as expected 1`] = `
         Editing you blog is quick. The Editor displays your blog the way readers see it, hiding the html in the background.
       </p>
     </section>
-  </main>
+  </div>
 </div>
 `;

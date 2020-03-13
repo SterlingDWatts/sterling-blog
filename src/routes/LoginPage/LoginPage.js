@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import { Page } from "../../components/Utils/Utils"
 import "./LoginPage.css";
 
 class LoginPage extends Component {
@@ -18,9 +19,9 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <main className="LoginPage">
+      <Page className="LoginPage">
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-      </main>
+      </Page>
     );
   }
 }

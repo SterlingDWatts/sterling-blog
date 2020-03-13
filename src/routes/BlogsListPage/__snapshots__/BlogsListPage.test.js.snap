@@ -2,7 +2,7 @@
 
 exports[`BlogsListPage Component renders the UI as expected 1`] = `
 <div
-  className="BlogsListPage"
+  className="Page BlogsListPage"
 >
   <h2>
     Sterling | Blog

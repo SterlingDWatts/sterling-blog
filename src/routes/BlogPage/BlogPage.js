@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import BlogBody from "../../components/BlogBody/BlogBody";
 import BlogList from "../../components/BlogList/BlogList";
 import BlogListContext from "../../contexts/BlogListContext";
+import { Page } from "../../components/Utils/Utils"
 import "./BlogPage.css";
 
 class BlogPage extends Component {
@@ -20,13 +21,13 @@ class BlogPage extends Component {
       .filter(b => b.id !== this.props.match.params.blogId)
       .slice(0, 2);
     return (
-      <div className="BlogPage">
+      <Page className="BlogPage">
         {blog && <BlogBody {...blog} />}
         <section className="BlogPage__blog_list">
           <h3>Recent Blogs</h3>
           {recentBlogs && <BlogList blogs={recentBlogs} />}
         </section>
-      </div>
+      </Page>
     );
   }
 }

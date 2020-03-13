@@ -2,7 +2,7 @@
 
 exports[`BlogPage Component renders the UI as expected 1`] = `
 <div
-  className="BlogPage"
+  className="Page BlogPage"
 >
   <section
     className="BlogPage__blog_list"

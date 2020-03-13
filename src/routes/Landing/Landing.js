@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { Page } from "../../components/Utils/Utils"
 import "./Landing.css";
 
 class Landing extends Component {
   render() {
     return (
-      <main className="Landing">
+      <Page className="Landing">
         <header>
           <h1>Sterling | Blog</h1>
           <h2>Easily share your thoughts</h2>
@@ -50,7 +51,7 @@ class Landing extends Component {
             readers see it, hiding the html in the background.
           </p>
         </section>
-      </main>
+      </Page>
     );
   }
 }

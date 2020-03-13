@@ -50,3 +50,7 @@ export function Required({ className, ...props }) {
     </span>
   );
 }
+
+export function Page({ className, ...props }) {
+  return <div className={["Page", className].join(" ")} {...props}></div>;
+}
