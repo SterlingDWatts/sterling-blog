@@ -12,13 +12,15 @@ class BlogBody extends Component {
         </header>
         <div
           className="BlogBody__pic"
-          style={{ backgroundImage: "url('" + this.props.longPic + "')" }}
+          style={{ backgroundImage: "url('" + this.props.picture + "')" }}
         ></div>
         <div className="BlogBody__date_and_author">
           <div className="BlogBody__date">
-            <NiceDate date={this.props.date} />
+            <NiceDate date={this.props.date_created} />
           </div>
-          <div className="BlogBody__author">{this.props.author}</div>
+          <div className="BlogBody__author">
+            {this.props.author.first_name + this.props.author.last_name}
+          </div>
         </div>
         <BlogContent
           className="BlogBody__content"
@@ -34,10 +36,10 @@ BlogBody.propTypes = {
   views: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  author: PropTypes.object.isRequired,
   squarePic: PropTypes.string.isRequired,
   longPic: PropTypes.string.isRequired,
-  date: (props, propName, componentName) => {
+  date_created: (props, propName, componentName) => {
     const prop = props[propName];
 
     if (!prop) {

@@ -29,7 +29,7 @@ export function BlogContent({ content, className, ...props }) {
 }
 
 export function NiceDate({ date, format = "MMMM dd, yyyy" }) {
-  return formatDate(date, format);
+  return formatDate(new Date(date), format);
 }
 
 export function ValidationError(props) {

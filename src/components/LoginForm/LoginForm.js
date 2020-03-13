@@ -7,10 +7,17 @@ import {
   Label,
   LabelGroup
 } from "../Utils/Utils";
+import AuthApiService from "../../services/auth-api-service";
 import "./LoginForm.css";
+import { Link } from "react-router-dom";
 
 class LoginForm extends Component {
+  static defaultProps = {
+    onLoginSuccess: () => {}
+  };
+
   state = {
+    error: null,
     username: {
       value: "",
       touched: false
@@ -65,11 +72,34 @@ class LoginForm extends Component {
     }
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    const { username, password } = this.state;
+    this.setState({
+      error: null
+    });
+
+    AuthApiService.postLogin({
+      username: username.value,
+      password: password.value
+    })
+      .then(res => {
+        this.setState({
+          username: { touched: false, value: "" },
+          password: { touched: false, value: "" }
+        });
+        this.onLoginSuccess();
+      })
+      .catch(res => {
+        this.setState({ error: res.error });
+      });
+  };
+
   render() {
     const usernameError = this.validateUsername();
     const passwordError = this.validatePassword();
     return (
-      <form className="LoginForm">
+      <form className="LoginForm" onSubmit={event => this.handleSubmit(event)}>
         <h2>Login</h2>
         <div className="hint">
           <Required /> required fields
@@ -109,9 +139,17 @@ class LoginForm extends Component {
           />
         </LabelGroup>
         <div className="LoginForm__buttons">
-          <Button type="submit" disabled={usernameError || passwordError}>
+          <Button
+            type="submit"
+            disabled={usernameError || passwordError}
+            className="form__button"
+          >
             Login
           </Button>
+        </div>
+        <div className="LoginForm__other_links">
+          Don't have an account yet?{" "}
+          <Link to="/create-account">Create account</Link>
         </div>
       </form>
     );

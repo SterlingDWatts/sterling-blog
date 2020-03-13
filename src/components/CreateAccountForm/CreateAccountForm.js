@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import {
   Input,
   Button,
@@ -8,9 +9,11 @@ import {
   Required
 } from "../Utils/Utils";
 import "./CreateAccountForm.css";
+import AuthApiService from "../../services/auth-api-service";
 
 class CreateAccountForm extends Component {
   state = {
+    error: null,
     firstName: {
       value: "",
       touched: false
@@ -143,6 +146,8 @@ class CreateAccountForm extends Component {
       return "Password must include at least upper case, lower case, number, and special character";
     } else if (password.startsWith(" ") || password.endsWith(" ")) {
       return "Password must not start or end with an empty space";
+    } else if (password.length < 8 || password.length > 72) {
+      return "Password must be between 8 and 72 characters";
     }
   };
 
@@ -161,7 +166,38 @@ class CreateAccountForm extends Component {
     }
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    const { firstName, lastName, username, email, password } = this.state;
+
+    this.setState({ error: null });
+    AuthApiService.postUser({
+      first_name: firstName.value,
+      last_name: lastName.value,
+      username: username.value,
+      email: email.value,
+      password: password.value,
+      privileges: "User"
+    })
+      .then(user => {
+        this.setState({
+          firstName: { touched: false, value: "" },
+          lastName: { touched: false, value: "" },
+          username: { touched: false, value: "" },
+          email: { touched: false, value: "" },
+          password: { touched: false, value: "" },
+          confirmEmail: { touched: false, value: "" },
+          confirmPassword: { touched: false, value: "" }
+        });
+        this.props.history.push();
+      })
+      .catch(res => {
+        this.setState({ error: res.error });
+      });
+  };
+
   render() {
+    const { error } = this.state;
     const firstNameError = this.validateFirstName();
     const lastNameError = this.validateLastName();
     const usernameError = this.validateUsername();
@@ -170,8 +206,9 @@ class CreateAccountForm extends Component {
     const passwordError = this.validatePassword();
     const confirmPasswordError = this.validateConfirmPassword();
     return (
-      <form className="CreateAccountForm">
+      <form className="CreateAccountForm" onSubmit={e => this.handleSubmit(e)}>
         <h2>Create Account</h2>
+        <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="hint">
           <Required /> required fields
         </div>
@@ -306,9 +343,13 @@ class CreateAccountForm extends Component {
               this.validatePassword() ||
               this.validateConfirmPassword()
             }
+            className="form__button"
           >
             Create Account
           </Button>
+        </div>
+        <div className="CreateAccountForm__other_links">
+          Already have an account? <Link to="/login">Login</Link>
         </div>
       </form>
     );

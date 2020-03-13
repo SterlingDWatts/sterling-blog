@@ -20,3 +20,9 @@
   max-width: 288px;
   margin: 0px auto;
 }
+
+.CreateAccountForm__other_links {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+}

@@ -9,9 +9,8 @@ describe("BlogListItem Component", () => {
     id: 1,
     title: "test title",
     content: "test content",
-    author: "test author",
-    longPic: "https://picsum.photos/seed/three/900/510",
-    squarePic: "https://picsum.photos/seed/three/255/255",
+    author: { firs_name: "test", last_name: "author" },
+    picture: "https://picsum.photos/seed/three/900/510",
     views: 8,
     date: new Date("December 22, 2019")
   };

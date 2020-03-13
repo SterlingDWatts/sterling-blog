@@ -45,3 +45,12 @@ input:active {
   border: 2px solid rgba(66, 133, 244);
   padding: 15px 12px;
 }
+
+.Button.form__button {
+  height: 52.4px;
+  width: 288px;
+  border-radius: 5px;
+  border: 1px solid rgb(218, 220, 224);
+  padding: auto;
+  font-size: 16px;
+}

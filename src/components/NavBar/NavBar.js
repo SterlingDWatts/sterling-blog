@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../Utils/Utils";
 import classnames from "classnames";
+import TokenService from "../../services/token-service";
+import IdleService from "../../services/idle-service";
 import "./NavBar.css";
 
 class NavBar extends Component {
@@ -20,6 +22,12 @@ class NavBar extends Component {
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
   }
+
+  handleLogout = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
+  };
 
   handleScroll = () => {
     const { prevScrollPos } = this.state;
@@ -39,6 +47,32 @@ class NavBar extends Component {
     });
   };
 
+  handleLogoutSideNav = () => {
+    this.handleLogout();
+    this.toggleSideNav();
+  };
+
+  renderLogoutLink() {
+    return (
+      <Link onClick={this.handleLogoutSideNav} to="/blogs">
+        Logout
+      </Link>
+    );
+  }
+
+  renderLoginLink() {
+    return (
+      <>
+        <Link to="/login" onClick={this.toggleSideNav}>
+          Login
+        </Link>
+        <Link to="/create-account" onClick={this.toggleSideNav}>
+          Create Account
+        </Link>
+      </>
+    );
+  }
+
   renderSideNav = () => {
     return (
       <nav className="SideNav">
@@ -55,12 +89,9 @@ class NavBar extends Component {
         <Link to="/blogs/create-blog" onClick={this.toggleSideNav}>
           Create Blog
         </Link>
-        <Link to="/login" onClick={this.toggleSideNav}>
-          Login
-        </Link>
-        <Link to="/create-account" onClick={this.toggleSideNav}>
-          Create Account
-        </Link>
+        {TokenService.hasAuthToken()
+          ? this.renderLogoutLink()
+          : this.renderLoginLink()}
       </nav>
     );
   };
@@ -78,8 +109,14 @@ class NavBar extends Component {
           </div>
           <nav className="NavBar__links_big">
             <Link to="/blogs/create-blog">Create Blog</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/create-account">Create Account</Link>
+            {TokenService.hasAuthToken() ? (
+              <Link to="/blogs">Logout</Link>
+            ) : (
+              <>
+                <Link to="/login">Login</Link>
+                <Link to="/create-account">Create Account</Link>
+              </>
+            )}
           </nav>
           <Button
             className="hamburger_button"
