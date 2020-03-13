@@ -53,9 +53,20 @@ input:active {
   border: 1px solid rgb(218, 220, 224);
   padding: auto;
   font-size: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 121, 191, 1) 0%,
+    rgba(0, 177, 255, 1) 100%
+  );
+  color: white;
+  font-weight: 600;
 }
 
 .Page {
   min-height: 100vh;
   padding: 51px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
