@@ -26,7 +26,7 @@ exports[`BlogListItem Component renders the UI as expected 1`] = `
       <div
         className="BlogListItem__author"
       >
-        test author
+        undefined author
       </div>
       <div
         className="BlogListItem__line"
@@ -39,7 +39,7 @@ exports[`BlogListItem Component renders the UI as expected 1`] = `
         className="BlogListItem__pic"
         style={
           Object {
-            "backgroundImage": "url('https://picsum.photos/seed/three/255/255')",
+            "backgroundImage": "url('https://picsum.photos/seed/three/900/510')",
           }
         }
       />

@@ -19,7 +19,7 @@ class BlogBody extends Component {
             <NiceDate date={this.props.date_created} />
           </div>
           <div className="BlogBody__author">
-            {this.props.author.first_name + this.props.author.last_name}
+            {this.props.author.first_name + " " + this.props.author.last_name}
           </div>
         </div>
         <BlogContent
@@ -37,8 +37,7 @@ BlogBody.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   author: PropTypes.object.isRequired,
-  squarePic: PropTypes.string.isRequired,
-  longPic: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
   date_created: (props, propName, componentName) => {
     const prop = props[propName];
 

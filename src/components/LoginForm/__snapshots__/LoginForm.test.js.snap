@@ -3,6 +3,7 @@
 exports[`LoginForm Component renders the UI as expected 1`] = `
 <form
   className="LoginForm"
+  onSubmit={[Function]}
 >
   <h2>
     Login
@@ -79,12 +80,24 @@ exports[`LoginForm Component renders the UI as expected 1`] = `
     className="LoginForm__buttons"
   >
     <button
-      className="Button "
+      className="Button form__button"
       disabled="Username is required"
       type="submit"
     >
       Login
     </button>
+  </div>
+  <div
+    className="LoginForm__other_links"
+  >
+    Don't have an account yet?
+     
+    <a
+      href="/create-account"
+      onClick={[Function]}
+    >
+      Create account
+    </a>
   </div>
 </form>
 `;

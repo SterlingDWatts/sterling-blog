@@ -3,10 +3,14 @@
 exports[`CreateAccountForm Component renders the UI as expected 1`] = `
 <form
   className="CreateAccountForm"
+  onSubmit={[Function]}
 >
   <h2>
     Create Account
   </h2>
+  <div
+    role="alert"
+  />
   <div
     className="hint"
   >
@@ -224,12 +228,23 @@ exports[`CreateAccountForm Component renders the UI as expected 1`] = `
     className="CreateAccountForm__buttons"
   >
     <button
-      className="Button "
+      className="Button form__button"
       disabled="First Name is required"
       type="submit"
     >
       Create Account
     </button>
+  </div>
+  <div
+    className="CreateAccountForm__other_links"
+  >
+    Already have an account? 
+    <a
+      href="/login"
+      onClick={[Function]}
+    >
+      Login
+    </a>
   </div>
 </form>
 `;

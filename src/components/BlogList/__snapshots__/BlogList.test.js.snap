@@ -42,7 +42,7 @@ exports[`BlogList Component renders the UI as expected 1`] = `
           className="BlogListItem__pic"
           style={
             Object {
-              "backgroundImage": "url('https://picsum.photos/seed/three/255/255')",
+              "backgroundImage": "url('https://picsum.photos/seed/three/900/510')",
             }
           }
         />

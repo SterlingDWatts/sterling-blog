@@ -12,7 +12,7 @@ describe("BlogListItem Component", () => {
     author: { firs_name: "test", last_name: "author" },
     picture: "https://picsum.photos/seed/three/900/510",
     views: 8,
-    date: new Date("December 22, 2019")
+    date_created: new Date("December 22, 2019")
   };
   it("renders without crashing", () => {
     const div = document.createElement("div");

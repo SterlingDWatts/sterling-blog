@@ -10,11 +10,10 @@ describe("BlogList Component", () => {
       id: 1,
       title: "test title",
       content: "test content",
-      author: "test author",
-      longPic: "https://picsum.photos/seed/three/900/510",
-      squarePic: "https://picsum.photos/seed/three/255/255",
+      author: { first_name: "test", last_name: "author"},
+      picture: "https://picsum.photos/seed/three/900/510",
       views: 8,
-      date: new Date("December 22, 2019")
+      date_created: new Date("December 22, 2019")
     }
   ];
   it("renders without crashing", () => {
@@ -38,7 +37,6 @@ describe("BlogList Component", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-
   it("renders the UI as expected with no blogs", () => {
     const emptyList = [];
     const tree = renderer
