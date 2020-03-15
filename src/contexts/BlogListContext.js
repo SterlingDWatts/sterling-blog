@@ -2,9 +2,10 @@ import React, { createContext, Component } from "react";
 
 const BlogListContext = createContext({
   blogList: [],
-  blog: {},
+  error: null,
+  setError: () => {},
+  clearError: () => {},
   setBlogList: () => {},
-  setBlog: () => {},
   addBlog: () => {}
 });
 
@@ -12,30 +13,34 @@ export default BlogListContext;
 
 export class BlogListProvider extends Component {
   state = {
-    blogList: [],
-    blog: {}
+    error: null,
+    blogList: []
   };
 
   setBlogList = blogList => {
     this.setState({ blogList });
   };
 
-  setBlog = blog => {
-    this.setState({ blog });
+  setError = error => {
+    console.error(error);
+    this.setState({ error });
+  };
+
+  clearError = () => {
+    this.setState({ error: null });
   };
 
   addBlog = blog => {
-    this.setState({
-      blogList: [blog, ...this.state.blogList]
-    });
+    this.setBlogList([...this.state.blogList, blog]);
   };
 
   render() {
     const value = {
+      error: this.state.error,
       blogList: this.state.blogList,
-      blog: this.state.blog,
+      setError: this.setError,
+      clearError: this.clearError,
       setBlogList: this.setBlogList,
-      setBlog: this.setBlog,
       addBlog: this.addBlog
     };
     return (

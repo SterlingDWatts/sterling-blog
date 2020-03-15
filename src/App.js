@@ -8,12 +8,10 @@ import LoginPage from "./routes/LoginPage/LoginPage";
 import CreateAccountPage from "./routes/CreateAccountPage/CreateAccountPage";
 import AddBlog from "./routes/AddBlog/AddBlog";
 import PublicOnlyRoute from "./components/Utils/PublicOnlyRoute";
-import BlogListContext from "./contexts/BlogListContext";
-import BlogApiService from "./services/blog-api-service";
+import PrivateRoute from "./components/Utils/PrivateRoute";
 import IdleService from "./services/idle-service";
 import TokenService from "./services/token-service";
 import AuthApiService from "./services/auth-api-service";
-import blogs from "./blogs-store";
 import "./App.css";
 
 class App extends Component {
@@ -22,15 +20,12 @@ class App extends Component {
     console.error(error);
     return { hasError: true };
   }
-  static contextType = BlogListContext;
 
   componentDidMount() {
-    BlogApiService.getBlogs().then(this.context.setBlogList);
-
     IdleService.setIdleCallback(this.logoutFromIdle);
     if (TokenService.hasAuthToken()) {
       IdleService.registerIdleTimerResets();
-      TokenService.queueCallBackBeforeExpiry(() => {
+      TokenService.queueCallbackBeforeExpiry(() => {
         AuthApiService.postRefreshToken();
       });
     }
@@ -55,7 +50,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/blogs" component={BlogsListPage} />
-          <Route path="/blogs/create-blog" component={AddBlog} />
+          <PrivateRoute path="/blogs/create-blog" component={AddBlog} />
           <Route path="/blogs/:blogId" component={BlogPage} />
           <PublicOnlyRoute path={"/login"} component={LoginPage} />
           <PublicOnlyRoute

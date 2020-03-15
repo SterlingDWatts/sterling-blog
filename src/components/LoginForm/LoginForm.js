@@ -74,7 +74,7 @@ class LoginForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { username, password } = this.state;
+    const { username, password } = e.target;
     this.setState({
       error: null
     });
@@ -88,7 +88,7 @@ class LoginForm extends Component {
           username: { touched: false, value: "" },
           password: { touched: false, value: "" }
         });
-        this.onLoginSuccess();
+        this.props.onLoginSuccess();
       })
       .catch(res => {
         this.setState({ error: res.error });

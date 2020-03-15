@@ -1,62 +1,60 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { NiceDate, BlogContent } from "../Utils/Utils";
+import { NiceDate } from "../Utils/Utils";
+import BlogBodyContext from "../../contexts/BlogPageContext";
+import TokenService from "../../services/token-service";
 import "./BlogBody.css";
 
 class BlogBody extends Component {
+  static contextType = BlogBodyContext;
+
+  renderDelete = () => {
+    return <button className="BlogBody__delete_button">Delete Blog</button>;
+  };
+
   render() {
+    const {
+      title,
+      picture,
+      content,
+      author,
+      date_created,
+      number_of_views
+    } = this.context.blog;
+    let token;
+    if (TokenService.hasAuthToken()) {
+      token = TokenService.readJwtToken();
+    }
+    let deleteButton;
+    if (token && token.id === author.id) {
+      deleteButton = this.renderDelete();
+    }
+    console.log(typeof date_created);
     return (
       <main className="BlogBody">
         <header>
-          <h2 className="BlogBody__title">{this.props.title}</h2>
+          <h2 className="BlogBody__title">{title}</h2>
+          <h3 className="BlogBody__author">
+            {author.first_name + " " + author.last_name}
+          </h3>
         </header>
         <div
           className="BlogBody__pic"
-          style={{ backgroundImage: "url('" + this.props.picture + "')" }}
+          style={{ backgroundImage: "url('" + picture + "')" }}
         ></div>
-        <div className="BlogBody__date_and_author">
+        <div className="BlogBody__date_and_views">
           <div className="BlogBody__date">
-            <NiceDate date={this.props.date_created} />
+            {date_created && <NiceDate date={date_created} />}
           </div>
-          <div className="BlogBody__author">
-            {this.props.author.first_name + " " + this.props.author.last_name}
-          </div>
+          <div className="BlogBody__views">{number_of_views} views</div>
         </div>
-        <BlogContent
+        <div
+          dangerouslySetInnerHTML={{ __html: content }}
           className="BlogBody__content"
-          content={this.props.content}
         />
+        <div className="BlogBody__buttons">{deleteButton}</div>
       </main>
     );
   }
 }
-
-BlogBody.propTypes = {
-  id: PropTypes.string.isRequired,
-  views: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  author: PropTypes.object.isRequired,
-  picture: PropTypes.string.isRequired,
-  date_created: (props, propName, componentName) => {
-    const prop = props[propName];
-
-    if (!prop) {
-      return new Error(`${propName} is required in ${componentName}`);
-    }
-
-    if (typeof prop != "object") {
-      return new Error(
-        `Invalid prop, ${propName} is expected to be a object in ${componentName}. ${typeof prop} found.`
-      );
-    }
-
-    if (!new Date(prop).getTime()) {
-      return new Error(
-        `Invalid prop, ${propName} is expected to be a date in ${componentName}`
-      );
-    }
-  }
-};
 
 export default BlogBody;

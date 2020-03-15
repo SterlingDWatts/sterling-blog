@@ -6,10 +6,9 @@ import "./BlogListItem.css";
 
 class BlogListItem extends Component {
   static defaultProps = {
-    views: 0
+    number_of_views: 0
   };
   render() {
-    const length = Math.floor(this.props.content.length / 300);
     return (
       <li className="BlogListItem">
         <Link
@@ -19,9 +18,9 @@ class BlogListItem extends Component {
           <div className="BlogListItem__info">
             <h3 className="BlogListItem__title">{this.props.title}</h3>
 
-            <div className="BlogListItem__date_and_length">
+            <div className="BlogListItem__date_and_views">
               <NiceDate date={this.props.date_created} />
-              {" · " + length + " min read"}
+              {" · views: " + this.props.number_of_views}
             </div>
             <div className="BlogListItem__author">
               {this.props.author.first_name + " " + this.props.author.last_name}
@@ -44,7 +43,7 @@ class BlogListItem extends Component {
 
 BlogListItem.propTypes = {
   id: PropTypes.number.isRequired,
-  views: PropTypes.number.isRequired,
+  number_of_views: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   author: PropTypes.object.isRequired,
@@ -54,12 +53,6 @@ BlogListItem.propTypes = {
 
     if (!prop) {
       return new Error(`${propName} is required in ${componentName}`);
-    }
-
-    if (typeof prop != "object") {
-      return new Error(
-        `Invalid prop, ${propName} is expected to be an object in ${componentName}. ${typeof prop} found.`
-      );
     }
 
     if (!new Date(prop).getTime()) {

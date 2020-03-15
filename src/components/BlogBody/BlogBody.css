@@ -1,5 +1,6 @@
 .BlogBody {
   line-height: 1.5em;
+  width: 100%;
 }
 
 .BlogBody__title {
@@ -15,14 +16,11 @@
   background-size: cover;
 }
 
-.BlogBody__date_and_author {
+.BlogBody__date_and_views {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 32px;
-}
-
-.BlogBody__date {
   font-size: 13px;
   color: grey;
 }

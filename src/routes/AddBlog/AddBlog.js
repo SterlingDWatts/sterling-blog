@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import cuid from "cuid";
 import config from "../../config";
 
 // import files for froala editor
 import FroalaEditor from "react-froala-wysiwyg";
-import FroalaEditorImg from "react-froala-wysiwyg/FroalaEditorImg";
 import "froala-editor/js/froala_editor.pkgd.min.js";
 import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/froala_editor.pkgd.min.css";
@@ -19,9 +17,6 @@ import "froala-editor/js/plugins/colors.min.js";
 import "froala-editor/css/plugins/colors.min.css";
 // Allows the user to change the font size with pixel precision
 import "froala-editor/js/plugins/font_size.min.js";
-// Enables advanced image editing
-import "froala-editor/js/plugins/image.min.js";
-import "froala-editor/css/plugins/image.min.css";
 // Enables advanced link editing
 import "froala-editor/js/plugins/link.min.js";
 // Allows users to change the type of paragraph
@@ -37,6 +32,7 @@ import {
 } from "../../components/Utils/Utils";
 import BlogListContext from "../../contexts/BlogListContext";
 import "./AddBlog.css";
+import BlogApiService from "../../services/blog-api-service";
 
 class AddBlog extends Component {
   static contextType = BlogListContext;
@@ -47,16 +43,13 @@ class AddBlog extends Component {
       touched: false
     },
     picture: {
-      model: {
-        src: "https://live.staticflickr.com/65535/49645116543_0c7e1e3f1e_c.jpg"
-      },
+      src: "https://live.staticflickr.com/65535/49645116543_0c7e1e3f1e_c.jpg",
       touched: false
     },
     content: {
       value: "",
       touched: false
-    },
-    id: cuid()
+    }
   };
 
   handleTitleChange = title => {
@@ -67,7 +60,7 @@ class AddBlog extends Component {
 
   handlePictureChange = picture => {
     this.setState({
-      picture: { model: picture, touched: true }
+      picture: { src: picture, touched: true }
     });
   };
 
@@ -92,10 +85,7 @@ class AddBlog extends Component {
   validatePicture() {
     if (!this.state.picture.touched) {
       return "Please change picture";
-    } else if (
-      this.state.picture.model.src.length === 0 ||
-      !this.state.picture.model.src
-    ) {
+    } else if (this.state.picture.src.length === 0 || !this.state.picture.src) {
       return "Picture is required";
     }
   }
@@ -112,25 +102,26 @@ class AddBlog extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { title, picture, content, id } = this.state;
+    const { title, picture, content } = this.state;
     const blog = {
-      id: id,
       title: title.value,
-      squarePic: picture.model.src,
-      longPic: picture.model.src,
-      content: content.value,
-      author: "Sterling Watts",
-      date: new Date(),
-      views: 0
+      picture: picture.src,
+      content: content.value
     };
-    this.setState({
-      title: { value: "", touched: false },
-      picture: { model: {}, touched: false },
-      content: { value: "", touched: false },
-      id: cuid()
-    });
-    this.context.addBlog(blog);
-    this.props.history.push("/blogs");
+    BlogApiService.postBlog(blog.title, blog.picture, blog.content)
+      .then(res => {
+        console.log(res);
+        this.setState({
+          title: { value: "", touched: false },
+          picture: { src: {}, touched: false },
+          content: { value: "", touched: false }
+        });
+        this.context.addBlog(res);
+        this.props.history.push("/blogs");
+      })
+      .catch(res => {
+        this.setState({ error: res.error });
+      });
   };
 
   render() {
@@ -139,84 +130,90 @@ class AddBlog extends Component {
     const contentError = this.validateContent();
     return (
       <Page>
-
-      
-      <form className="AddBlog" onSubmit={e => this.handleSubmit(e)}>
-        <h2>Create Blog</h2>
-        <div className="hint">
-          <Required /> required fields
-        </div>
-        <div className="AddBlog__title">
-          <label htmlFor="title">
-            Title
-            {"  "}
-            <Required />
-          </label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            required
-            value={this.state.title.value}
-            onChange={e => this.handleTitleChange(e.target.value)}
-            placeholder="Edit title"
-          />
-          <ValidationError
-            message={titleError}
-            touched={this.state.title.touched}
-          />
-        </div>
-        <div className="AddBlog__picture">
-          <label htmlFor="picture">
-            Picture
-            {"  "}
-            <Required />
-          </label>
-          <FroalaEditorImg
-            model={this.state.picture.model}
-            onModelChange={this.handlePictureChange}
-            config={{
-              imageEditButtons: ["imageReplace"]
-            }}
-          />
-          <ValidationError message={pictureError} />
-        </div>
-        <div className="AddBlog__content">
-          <label>
-            Content
-            {"  "}
-            <Required />
-          </label>
-          <FroalaEditor
-            tag="textarea"
-            id="content"
-            model={this.state.content.value}
-            onModelChange={this.handleContentChange}
-            config={{
-              initOnClick: true,
-              placeholderText: "Click to Edit Blog Content",
-              charCounterCount: true,
-              fontSizeSelection: false,
-              fontSizeDefaultSelection: "16",
-              attribution: false,
-              key: config.FROALA_API_KEY
-            }}
-          />
-          <ValidationError
-            message={contentError}
-            touched={this.state.content.touched}
-          />
-        </div>
-        <div className="AddBlog__buttons">
-          <Button
-            type="submit"
-            disabled={this.validateTitle() || this.validatePicture()}
-          >
-            Submit
-          </Button>
-          <Button>Cancel</Button>
-        </div>
-      </form>
+        <form className="AddBlog" onSubmit={e => this.handleSubmit(e)}>
+          <h2>Create Blog</h2>
+          <div className="hint">
+            <Required /> required fields
+          </div>
+          <div className="AddBlog__title">
+            <label htmlFor="title">
+              Title
+              {"  "}
+              <Required />
+            </label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              required
+              value={this.state.title.value}
+              onChange={e => this.handleTitleChange(e.target.value)}
+              placeholder="Edit title"
+            />
+            <ValidationError
+              message={titleError}
+              touched={this.state.title.touched}
+            />
+          </div>
+          <div className="AddBlog__picture">
+            <label htmlFor="picture">
+              Picture
+              {"  "}
+              <Required />
+            </label>
+            <input
+              type="url"
+              name="picture"
+              id="picture"
+              required
+              value={this.state.picture.src}
+              onChange={e => this.handlePictureChange(e.target.value)}
+              placeholder="Edit url of main picture"
+            />
+            <ValidationError message={pictureError} />
+            <div
+              className="AddBlog__pic"
+              style={{
+                backgroundImage: "url('" + this.state.picture.src + "')"
+              }}
+            ></div>
+          </div>
+          <div className="AddBlog__content">
+            <label>
+              Content
+              {"  "}
+              <Required />
+            </label>
+            <FroalaEditor
+              tag="textarea"
+              id="content"
+              model={this.state.content.value}
+              onModelChange={this.handleContentChange}
+              config={{
+                initOnClick: true,
+                placeholderText: "Click to Edit Blog Content",
+                charCounterCount: true,
+                fontSizeSelection: false,
+                fontSizeDefaultSelection: "16",
+                attribution: false,
+                key: config.FROALA_API_KEY
+              }}
+            />
+            <ValidationError
+              message={contentError}
+              touched={this.state.content.touched}
+            />
+          </div>
+          <div className="AddBlog__buttons">
+            <Button
+              type="submit"
+              disabled={this.validateTitle() || this.validatePicture()}
+            >
+              Submit
+            </Button>
+            <Button>Cancel</Button>
+          </div>
+        </form>
       </Page>
     );
   }

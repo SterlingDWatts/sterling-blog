@@ -54,9 +54,14 @@ class NavBar extends Component {
 
   renderLogoutLink() {
     return (
-      <Link onClick={this.handleLogoutSideNav} to="/blogs">
-        Logout
-      </Link>
+      <>
+        <Link to="/blogs/create-blog" onClick={this.toggleSideNav}>
+          Create Blog
+        </Link>
+        <Link onClick={this.handleLogoutSideNav} to="/blogs">
+          Logout
+        </Link>
+      </>
     );
   }
 
@@ -85,9 +90,6 @@ class NavBar extends Component {
         </Button>
         <Link to="/blogs" onClick={this.toggleSideNav}>
           Blogs
-        </Link>
-        <Link to="/blogs/create-blog" onClick={this.toggleSideNav}>
-          Create Blog
         </Link>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()

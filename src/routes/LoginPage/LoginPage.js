@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import { Page } from "../../components/Utils/Utils"
+import { Page } from "../../components/Utils/Utils";
 import "./LoginPage.css";
 
 class LoginPage extends Component {
@@ -13,7 +13,7 @@ class LoginPage extends Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props;
-    const destination = (location.state || {}).from || "/";
+    const destination = (location.state || {}).from || "/blogs";
     history.push(destination);
   };
 

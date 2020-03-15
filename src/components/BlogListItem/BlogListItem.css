@@ -20,7 +20,7 @@ a.BlogListItem__title_link:visited {
   color: rgb(0, 0, 0);
 }
 
-.BlogListItem__date_and_length {
+.BlogListItem__date_and_views {
   font-size: 10px;
   color: grey;
 }

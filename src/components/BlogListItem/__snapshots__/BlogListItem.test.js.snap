@@ -18,10 +18,10 @@ exports[`BlogListItem Component renders the UI as expected 1`] = `
         test title
       </h3>
       <div
-        className="BlogListItem__date_and_length"
+        className="BlogListItem__date_and_views"
       >
         December 22, 2019
-         · 0 min read
+         · views: 0
       </div>
       <div
         className="BlogListItem__author"

@@ -1,6 +1,8 @@
 .CreateAccountForm {
-  max-width: 944px;
-  margin: 0 auto;
+  max-width: 320px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .CreateAccountForm h2 {
@@ -24,4 +26,11 @@
   margin-top: 16px;
   text-align: center;
   font-size: 13px;
+}
+
+@media screen and (min-width: 350px) {
+  .CreateAccountForm {
+    padding: 16px;
+    margin-top: 32px;
+  }
 }

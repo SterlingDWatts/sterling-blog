@@ -4,6 +4,9 @@ exports[`BlogPage Component renders the UI as expected 1`] = `
 <div
   className="Page BlogPage"
 >
+  <div
+    className="BlogPage--loading"
+  />
   <section
     className="BlogPage__blog_list"
   >
