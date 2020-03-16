@@ -5,6 +5,7 @@
   left: 0;
   right: 0;
   background-color: white;
+  z-index: 10;
 }
 
 .NavBar__container {
