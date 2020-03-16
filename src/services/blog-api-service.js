@@ -31,6 +31,29 @@ const BlogApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  deleteBlog(blogId) {
+    return fetch(`${config.API_ENDPOINT}/blogs/${blogId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res => {
+      return !res.ok ? res.json().then(e => Promise.reject(e)) : res;
+    });
+  },
+  patchBlog(blogId, blogFields) {
+    return fetch(`${config.API_ENDPOINT}/blogs/${blogId}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(blogFields)
+    }).then(res => {
+      return !res.ok ? res.json().then(e => Promise.json(e)) : res;
+    });
   }
 };
 

@@ -17,6 +17,9 @@ class BlogPage extends Component {
   }
 
   static defaultProps = {
+    history: {
+      push: () => {}
+    },
     match: { params: { blogId: -1 } }
   };
 
@@ -41,18 +44,32 @@ class BlogPage extends Component {
         blogId
       });
       this.context.clearError();
+      window.scrollTo(0, 0);
       BlogApiService.getBlog(blogId)
         .then(this.context.setBlog)
         .catch(this.context.setError);
     }
   }
 
-  renderBlog() {
-    return <BlogBody />;
-  }
+  handleDeleteBlog = () => {
+    BlogApiService.deleteBlog(this.state.blogId)
+      .then(res => {
+        this.context.clearBlog();
+        this.props.history.push("/blogs");
+      })
+      .catch(res => {
+        this.setState({ error: res.error });
+      });
+  };
 
-  handleClick() {
-    console.log("I clicked!");
+  handleEditBlog = () => {
+    this.props.history.push(`/blogs/edit/${this.props.match.params.blogId}`);
+  };
+
+  renderBlog() {
+    return (
+      <BlogBody onDelete={this.handleDeleteBlog} onEdit={this.handleEditBlog} />
+    );
   }
 
   render() {
@@ -61,7 +78,7 @@ class BlogPage extends Component {
     if (error) {
       content =
         error.error === "Blog doesn't exist" ? (
-          <p className="BlogPage--not-founnd">Blog Not Found</p>
+          <p className="BlogPage--not-found">Blog Not Found</p>
         ) : (
           <p className="BlogPage--error">There was an error</p>
         );
@@ -76,7 +93,7 @@ class BlogPage extends Component {
         {content}
         <section className="BlogPage__blog_list">
           <h3>Recent Blogs</h3>
-          <BlogList recent={true} blogId={blogId} onClick={this.handleClick} />
+          <BlogList recent={true} blogId={blogId} />
         </section>
       </Page>
     );

@@ -6,7 +6,8 @@ const BlogListContext = createContext({
   setError: () => {},
   clearError: () => {},
   setBlogList: () => {},
-  addBlog: () => {}
+  addBlog: () => {},
+  deleteBlog: () => {}
 });
 
 export default BlogListContext;
@@ -34,6 +35,13 @@ export class BlogListProvider extends Component {
     this.setBlogList([...this.state.blogList, blog]);
   };
 
+  deleteBlog = blogId => {
+    const updatedBlogList = this.state.blogList.filter(
+      blog => blog.id !== blogId
+    );
+    this.setBlogList(updatedBlogList);
+  };
+
   render() {
     const value = {
       error: this.state.error,
@@ -41,7 +49,8 @@ export class BlogListProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setBlogList: this.setBlogList,
-      addBlog: this.addBlog
+      addBlog: this.addBlog,
+      deleteBlog: this.deleteBlog
     };
     return (
       <BlogListContext.Provider value={value}>

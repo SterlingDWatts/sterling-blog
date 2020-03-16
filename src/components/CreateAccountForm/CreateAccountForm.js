@@ -12,6 +12,10 @@ import "./CreateAccountForm.css";
 import AuthApiService from "../../services/auth-api-service";
 
 class CreateAccountForm extends Component {
+  static defaultProps = {
+    onRegistrationSuccess: () => {}
+  };
+
   state = {
     error: null,
     firstName: {
@@ -189,7 +193,7 @@ class CreateAccountForm extends Component {
           confirmEmail: { touched: false, value: "" },
           confirmPassword: { touched: false, value: "" }
         });
-        this.props.history.push();
+        this.props.onRegistrationSuccess();
       })
       .catch(res => {
         this.setState({ error: res.error });

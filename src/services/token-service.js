@@ -24,6 +24,10 @@ const TokenService = {
   readJwtToken() {
     return TokenService.parseJwt(TokenService.getAuthToken());
   },
+  hasPrivileges(id) {
+    const token = this.readJwtToken();
+    return token.id === id || token.privileges === "Admin";
+  },
   _getMsUntilExpiry(payload) {
     return payload.exp * 1000 - Date.now();
   },

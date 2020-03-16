@@ -1,0 +1,21 @@
+.Footer {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: white;
+  border-top: 1px solid rgba(0, 0, 255, 0.123);
+}
+
+.Footer__container {
+  padding: 16px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 32px;
+  width: 100%;
+  max-width: 944px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.Footer a {
+  color: black;
+}

@@ -7,8 +7,25 @@ import "./BlogBody.css";
 class BlogBody extends Component {
   static contextType = BlogBodyContext;
 
-  renderDelete = () => {
-    return <button className="BlogBody__delete_button">Delete Blog</button>;
+  static defaultProps = {
+    onDelete: () => {},
+    onEdit: () => {}
+  };
+
+  renderButtons = () => {
+    return (
+      <>
+        <button className="BlogBody__delete_button" onClick={this.props.onEdit}>
+          Edit Blog
+        </button>
+        <button
+          className="BlogBody__delete_button"
+          onClick={this.props.onDelete}
+        >
+          Delete Blog
+        </button>
+      </>
+    );
   };
 
   render() {
@@ -20,15 +37,6 @@ class BlogBody extends Component {
       date_created,
       number_of_views
     } = this.context.blog;
-    let token;
-    if (TokenService.hasAuthToken()) {
-      token = TokenService.readJwtToken();
-    }
-    let deleteButton;
-    if (token && token.id === author.id) {
-      deleteButton = this.renderDelete();
-    }
-    console.log(typeof date_created);
     return (
       <main className="BlogBody">
         <header>
@@ -51,7 +59,11 @@ class BlogBody extends Component {
           dangerouslySetInnerHTML={{ __html: content }}
           className="BlogBody__content"
         />
-        <div className="BlogBody__buttons">{deleteButton}</div>
+        <div className="BlogBody__buttons">
+          {TokenService.hasAuthToken() &&
+            TokenService.hasPrivileges(author.id) &&
+            this.renderButtons()}
+        </div>
       </main>
     );
   }

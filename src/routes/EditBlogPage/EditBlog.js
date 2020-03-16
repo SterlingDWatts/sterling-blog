@@ -30,12 +30,12 @@ import {
   Button,
   Page
 } from "../../components/Utils/Utils";
-import BlogListContext from "../../contexts/BlogListContext";
-import "./AddBlog.css";
+import BlogPageContext from "../../contexts/BlogPageContext";
+import "./EditBlog.css";
 import BlogApiService from "../../services/blog-api-service";
 
-class AddBlog extends Component {
-  static contextType = BlogListContext;
+class EditBlog extends Component {
+  static contextType = BlogPageContext;
 
   state = {
     title: {
@@ -51,6 +51,22 @@ class AddBlog extends Component {
       touched: false
     }
   };
+
+  componentDidMount() {
+    const blogId = this.props.match.params.blogId;
+    this.context.clearError();
+    BlogApiService.getBlog(blogId)
+      .then(this.context.setBlog)
+      .then(() => {
+        const { title, content, picture } = this.context.blog;
+        this.setState({
+          title: { value: title, touched: true },
+          picture: { src: picture, touched: true },
+          content: { value: content, touched: true }
+        });
+      })
+      .catch(this.context.setError);
+  }
 
   handleTitleChange = title => {
     this.setState({
@@ -108,15 +124,14 @@ class AddBlog extends Component {
       picture: picture.src,
       content: content.value
     };
-    BlogApiService.postBlog(blog.title, blog.picture, blog.content)
+    BlogApiService.patchBlog(this.props.match.params.blogId, blog)
       .then(res => {
         this.setState({
           title: { value: "", touched: false },
           picture: { src: {}, touched: false },
           content: { value: "", touched: false }
         });
-        this.context.addBlog(res);
-        this.props.history.push("/blogs");
+        this.props.history.push(`/blogs/${this.props.match.params.blogId}`);
       })
       .catch(res => {
         this.setState({ error: res.error });
@@ -129,12 +144,12 @@ class AddBlog extends Component {
     const contentError = this.validateContent();
     return (
       <Page>
-        <form className="AddBlog" onSubmit={e => this.handleSubmit(e)}>
+        <form className="EditBlog" onSubmit={e => this.handleSubmit(e)}>
           <h2>Create Blog</h2>
           <div className="hint">
             <Required /> required fields
           </div>
-          <div className="AddBlog__title">
+          <div className="EditBlog__title">
             <label htmlFor="title">
               Title
               {"  "}
@@ -154,7 +169,7 @@ class AddBlog extends Component {
               touched={this.state.title.touched}
             />
           </div>
-          <div className="AddBlog__picture">
+          <div className="EditBlog__picture">
             <label htmlFor="picture">
               Picture
               {"  "}
@@ -171,13 +186,13 @@ class AddBlog extends Component {
             />
             <ValidationError message={pictureError} />
             <div
-              className="AddBlog__pic"
+              className="EditBlog__pic"
               style={{
                 backgroundImage: "url('" + this.state.picture.src + "')"
               }}
             ></div>
           </div>
-          <div className="AddBlog__content">
+          <div className="EditBlog__content">
             <label>
               Content
               {"  "}
@@ -203,10 +218,14 @@ class AddBlog extends Component {
               touched={this.state.content.touched}
             />
           </div>
-          <div className="AddBlog__buttons">
+          <div className="EditBlog__buttons">
             <Button
               type="submit"
-              disabled={this.validateTitle() || this.validatePicture()}
+              disabled={
+                this.validateTitle() ||
+                this.validatePicture() ||
+                this.validateContent()
+              }
             >
               Submit
             </Button>
@@ -218,4 +237,4 @@ class AddBlog extends Component {
   }
 }
 
-export default AddBlog;
+export default EditBlog;

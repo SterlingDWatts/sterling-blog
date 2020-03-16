@@ -16,16 +16,17 @@ class BlogListItem extends Component {
           className="BlogListItem__title_link"
         >
           <div className="BlogListItem__info">
-            <h3 className="BlogListItem__title">{this.props.title}</h3>
+            <header>
+              <h3 className="BlogListItem__title">{this.props.title}</h3>
 
-            <div className="BlogListItem__date_and_views">
-              <NiceDate date={this.props.date_created} />
-              {" · views: " + this.props.number_of_views}
-            </div>
+              <h4 className="BlogListItem__date_and_views">
+                <NiceDate date={this.props.date_created} />
+                {" · views: " + this.props.number_of_views}
+              </h4>
+            </header>
             <div className="BlogListItem__author">
               {this.props.author.first_name + " " + this.props.author.last_name}
             </div>
-            <div className="BlogListItem__line"></div>
           </div>
           <div className="BlogListItem__pic_holder">
             <div
