@@ -43,7 +43,7 @@ class AddBlog extends Component {
       touched: false
     },
     picture: {
-      src: "https://live.staticflickr.com/65535/49645116543_0c7e1e3f1e_c.jpg",
+      src: "https://picsum.photos/900/520",
       touched: false
     },
     content: {
@@ -169,13 +169,16 @@ class AddBlog extends Component {
               onChange={e => this.handlePictureChange(e.target.value)}
               placeholder="Edit url of main picture"
             />
-            <ValidationError message={pictureError} />
             <div
               className="AddBlog__pic"
               style={{
                 backgroundImage: "url('" + this.state.picture.src + "')"
               }}
             ></div>
+            <ValidationError
+              message={pictureError}
+              touched={this.state.picture.touched}
+            />
           </div>
           <div className="AddBlog__content">
             <label>

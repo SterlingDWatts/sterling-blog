@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogBody Component renders the UI as expected 1`] = `
+<main
+  className="BlogBody"
+>
+  <header>
+    <h2
+      className="BlogBody__title"
+    />
+    <h3
+      className="BlogBody__author"
+    >
+      undefined undefined
+    </h3>
+  </header>
+  <div
+    className="BlogBody__pic"
+    style={
+      Object {
+        "backgroundImage": "url('undefined')",
+      }
+    }
+  />
+  <div
+    className="BlogBody__date_and_views"
+  >
+    <div
+      className="BlogBody__date"
+    />
+    <div
+      className="BlogBody__views"
+    >
+       views
+    </div>
+  </div>
+  <div
+    className="BlogBody__content"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": undefined,
+      }
+    }
+  />
+  <div
+    className="BlogBody__buttons"
+  />
+</main>
+`;
