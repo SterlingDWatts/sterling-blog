@@ -85,6 +85,7 @@ exports[`App Component renders the UI as expected 1`] = `
         </h3>
       </header>
       <img
+        alt="Blog List Page"
         className="Landing__blog_list_pic"
         src="blog-list-screen.png"
         width="242px"
@@ -100,6 +101,7 @@ exports[`App Component renders the UI as expected 1`] = `
         </h3>
       </header>
       <img
+        alt="Blog Page"
         className="Landing__blog_page_pic"
         src="blog-page-screen.png"
         width="242px"
@@ -115,6 +117,7 @@ exports[`App Component renders the UI as expected 1`] = `
         </h3>
       </header>
       <img
+        alt="Blog Edit Page"
         className="Landing__edit_blog_pic"
         src="edit-blog-screen.png"
         width="242px"
