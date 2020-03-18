@@ -3,6 +3,7 @@ import config from "../../config";
 
 // import files for froala editor
 import FroalaEditor from "react-froala-wysiwyg";
+import FroalaEditorImg from "react-froala-wysiwyg/FroalaEditorImg";
 import "froala-editor/js/froala_editor.pkgd.min.js";
 import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/froala_editor.pkgd.min.css";
@@ -23,6 +24,9 @@ import "froala-editor/js/plugins/link.min.js";
 import "froala-editor/js/plugins/paragraph_format.min.js";
 // Adds quote option
 import "froala-editor/js/plugins/quote.min.js";
+// Enables advanced image editing
+import "froala-editor/js/plugins/image.min.js";
+import "froala-editor/css/plugins/image.min.css";
 
 import {
   ValidationError,
@@ -43,7 +47,9 @@ class AddBlog extends Component {
       touched: false
     },
     picture: {
-      src: "https://picsum.photos/900/520",
+      model: {
+        src: "https://live.staticflickr.com/65535/49645116543_0c7e1e3f1e_c.jpg"
+      },
       touched: false
     },
     content: {
@@ -60,7 +66,7 @@ class AddBlog extends Component {
 
   handlePictureChange = picture => {
     this.setState({
-      picture: { src: picture, touched: true }
+      picture: { touched: true, model: picture }
     });
   };
 
@@ -85,7 +91,10 @@ class AddBlog extends Component {
   validatePicture() {
     if (!this.state.picture.touched) {
       return "Please change picture";
-    } else if (this.state.picture.src.length === 0 || !this.state.picture.src) {
+    } else if (
+      this.state.picture.model.src.length === 0 ||
+      !this.state.picture.model.src
+    ) {
       return "Picture is required";
     }
   }
@@ -160,25 +169,16 @@ class AddBlog extends Component {
               {"  "}
               <Required />
             </label>
-            <input
-              type="url"
-              name="picture"
-              id="picture"
-              required
-              value={this.state.picture.src}
-              onChange={e => this.handlePictureChange(e.target.value)}
-              placeholder="Edit url of main picture"
-            />
-            <div
-              className="AddBlog__pic"
-              style={{
-                backgroundImage: "url('" + this.state.picture.src + "')"
+            <FroalaEditorImg
+              tag="img"
+              model={this.state.picture.model}
+              onModelChange={this.handlePictureChange}
+              config={{
+                imageUploadURL: "http://i.froala.com/upload",
+                imageEditButtons: ["imageReplace", "imageAlt"]
               }}
-            ></div>
-            <ValidationError
-              message={pictureError}
-              touched={this.state.picture.touched}
             />
+            <ValidationError message={pictureError} touched={true} />
           </div>
           <div className="AddBlog__content">
             <label>
@@ -198,7 +198,23 @@ class AddBlog extends Component {
                 fontSizeSelection: false,
                 fontSizeDefaultSelection: "16",
                 attribution: false,
-                key: config.FROALA_API_KEY
+                key: config.FROALA_API_KEY,
+                pluginsEnabled: [
+                  "align",
+                  "charCounter, colors",
+                  "fontFamily",
+                  "fontsize",
+                  "inlineStyle",
+                  "inlineClass",
+                  "lineBreaker",
+                  "lineHeight",
+                  "link",
+                  "lists",
+                  "paragraphFormat",
+                  "paragraphStyle",
+                  "quote",
+                  "url"
+                ]
               }}
             />
             <ValidationError

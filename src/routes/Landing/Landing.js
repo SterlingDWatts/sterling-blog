@@ -21,6 +21,7 @@ class Landing extends Component {
             className="Landing__blog_list_pic"
             src={blogListScreen}
             width="242px"
+            alt="Blog List Page"
           />
           <p>
             The Blogs page displays a list of all of your blogs for your readers
@@ -39,6 +40,7 @@ class Landing extends Component {
             className="Landing__blog_page_pic"
             src={blogPageScreen}
             width="242px"
+            alt="Blog Page"
           />
           <p>
             Use the simple interface to style your blog and and see it exactly
@@ -56,6 +58,7 @@ class Landing extends Component {
             className="Landing__edit_blog_pic"
             src={editBlogScreen}
             width="242px"
+            alt="Blog Edit Page"
           />
           <p>
             Editing after you have published is effortless. Just open up your

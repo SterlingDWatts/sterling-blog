@@ -28,17 +28,20 @@
   margin-left: 16px;
 }
 
-.AddBlog input {
+.AddBlog input,
+.fr-box {
   border: 1px solid rgb(218, 220, 224);
   padding: 16px 13px;
   border-radius: 5px;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
 }
 
-.AddBlog__pic {
-  width: 100%;
-  height: calc((100vw - 32px) / 90 * 51);
-  max-height: calc((944px) / 90 * 51);
-  background-position: center;
-  background-size: cover;
-  margin-top: 16px;
+.AddBlog input#placeholder {
+  color: rgba(75, 74, 74, 0.5);
+}
+
+.fr-box.fr-basic {
+  border: none;
+  padding: 0;
 }
