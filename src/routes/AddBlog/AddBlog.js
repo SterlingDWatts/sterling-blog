@@ -174,7 +174,7 @@ class AddBlog extends Component {
               model={this.state.picture.model}
               onModelChange={this.handlePictureChange}
               config={{
-                imageUploadURL: "http://i.froala.com/upload",
+                imageUploadURL: "https://i.froala.com/upload",
                 imageEditButtons: ["imageReplace", "imageAlt"],
                 key: config.FROALA_API_KEY
               }}
