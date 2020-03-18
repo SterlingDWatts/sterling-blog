@@ -24,3 +24,26 @@
   font-size: 13px;
   color: grey;
 }
+
+.BlogBody__content strong {
+  font-weight: 600;
+}
+
+.BlogBody__content em {
+  font-style: italic;
+}
+
+.BlogBody__content sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.BlogBody__content sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.BlogBody__content h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
