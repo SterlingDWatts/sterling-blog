@@ -60,7 +60,7 @@ class AddBlog extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://localhost:8000/api/get_signature`, {
+    fetch(`${config.API_ENDPOINT}/get_signature`, {
       headers: {}
     })
       .then(res =>
@@ -167,18 +167,7 @@ class AddBlog extends Component {
           initOnClick: true,
           imageUploadToS3: this.state.s3Hash,
           imageEditButtons: ["imageReplace", "imageAlt"],
-          key: config.FROALA_API_KEY,
-          events: {
-            "image.beforeUpload": images => {
-              console.log(this.state.s3Hash, images);
-            },
-            "image.uploaded": res => {
-              console.log(res);
-            },
-            "image.inserted": ($img, res) => {
-              console.log($img, res);
-            }
-          }
+          key: config.FROALA_API_KEY
         }}
       />
     );
