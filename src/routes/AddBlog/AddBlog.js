@@ -55,8 +55,32 @@ class AddBlog extends Component {
     content: {
       value: "",
       touched: false
-    }
+    },
+    s3Hash: null
   };
+
+  componentDidMount() {
+    fetch(`http://localhost:8000/api/get_signature`, {
+      headers: {}
+    })
+      .then(res =>
+        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      )
+      .then(s3Hash => {
+        this.setState({
+          s3Hash
+        });
+      });
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      title: { value: "", touched: false },
+      picture: { model: { src: "" }, touched: false },
+      content: { value: "", touched: false },
+      s3Hash: null
+    });
+  }
 
   handleTitleChange = title => {
     this.setState({
@@ -122,7 +146,8 @@ class AddBlog extends Component {
         this.setState({
           title: { value: "", touched: false },
           picture: { model: { src: "" }, touched: false },
-          content: { value: "", touched: false }
+          content: { value: "", touched: false },
+          s3Hash: {}
         });
         this.context.addBlog(res);
         this.props.history.push("/blogs");
@@ -132,10 +157,42 @@ class AddBlog extends Component {
       });
   };
 
+  renderImageEditor = () => {
+    return (
+      <FroalaEditorImg
+        tag="img"
+        model={this.state.picture.model}
+        onModelChange={this.handlePictureChange}
+        config={{
+          initOnClick: true,
+          imageUploadToS3: this.state.s3Hash,
+          imageEditButtons: ["imageReplace", "imageAlt"],
+          key: config.FROALA_API_KEY,
+          events: {
+            "image.beforeUpload": images => {
+              console.log(this.state.s3Hash, images);
+            },
+            "image.uploaded": res => {
+              console.log(res);
+            },
+            "image.inserted": ($img, res) => {
+              console.log($img, res);
+            }
+          }
+        }}
+      />
+    );
+  };
+
   render() {
     const titleError = this.validateTitle();
     const pictureError = this.validatePicture();
     const contentError = this.validateContent();
+    const imageEditor = this.state.s3Hash ? (
+      this.renderImageEditor()
+    ) : (
+      <div className="editor-loading" />
+    );
     return (
       <Page>
         <form className="AddBlog" onSubmit={e => this.handleSubmit(e)}>
@@ -172,16 +229,7 @@ class AddBlog extends Component {
               <sup>(Click picture to replace)</sup>
             </label>
             <ValidationError message={pictureError} touched={true} />
-            <FroalaEditorImg
-              tag="img"
-              model={this.state.picture.model}
-              onModelChange={this.handlePictureChange}
-              config={{
-                imageUploadURL: "http://i.froala.com/upload",
-                imageEditButtons: ["imageReplace", "imageAlt"],
-                key: config.FROALA_API_KEY
-              }}
-            />
+            {imageEditor}
           </div>
           <div className="AddBlog__content">
             <label>
