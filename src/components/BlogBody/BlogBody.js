@@ -51,9 +51,19 @@ class BlogBody extends Component {
         ></div>
         <div className="BlogBody__date_and_views">
           <div className="BlogBody__date">
-            {date_created && <NiceDate date={date_created} />}
+            {date_created && (
+              <>
+                <span className="BlogBody--color-splash">
+                  <NiceDate date={date_created} format={"MMMM dd"} />
+                </span>
+                <NiceDate date={date_created} format={", yyyy"} />
+              </>
+            )}
           </div>
-          <div className="BlogBody__views">{number_of_views} views</div>
+          <div className="BlogBody__views">
+            <span className="BlogBody--color-splash">{number_of_views}</span>{" "}
+            views
+          </div>
         </div>
         <div
           dangerouslySetInnerHTML={{ __html: content }}

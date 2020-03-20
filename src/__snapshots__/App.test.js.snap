@@ -17,7 +17,12 @@ exports[`App Component renders the UI as expected 1`] = `
           href="/blogs"
           onClick={[Function]}
         >
-          Sterling | Blog
+          Sterling | 
+          <span
+            className="NavBar--color-splash"
+          >
+            Blog
+          </span>
         </a>
       </div>
       <nav

@@ -12,7 +12,7 @@
 }
 
 .BlogListItem__info {
-  padding: 8px;
+  padding-right: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -25,6 +25,7 @@
 
 .BlogListItem__title {
   font-weight: 600;
+  font-size: 20px;
 }
 
 a.BlogListItem__title_link:link,
@@ -34,15 +35,15 @@ a.BlogListItem__title_link:visited {
 }
 
 .BlogListItem__date_and_views {
-  font-size: 10px;
+  font-size: 13px;
   color: grey;
 }
 
 .BlogListItem__author {
   width: 50%;
-  border-top: 1px solid #2d8cfb;
-  padding-top: 4px;
-  font-size: 13px;
+  border-bottom: 1px solid #2d8cfb;
+  padding: 4px 0px;
+  font-size: 16px;
 }
 
 .BlogListItem__pic {
@@ -70,6 +71,7 @@ a.BlogListItem__title_link:visited {
 .BlogListItem:nth-child(1) .BlogListItem__title {
   line-height: 1;
   font-size: 24px;
+  margin-top: 16px;
 }
 
 .BlogListItem:nth-child(1) .BlogListItem__date_and_views {
@@ -89,8 +91,9 @@ a.BlogListItem__title_link:visited {
 }
 
 .BlogListItem:nth-child(1) .BlogListItem__author {
+  width: 100%;
   margin-top: 16px;
-  border-top-color: #c1520b;
+  border-bottom-color: #c1520b;
 }
 
 .BlogListItem:nth-child(1) .BlogListItem--color-splash {

@@ -24,7 +24,7 @@ class BlogListItem extends Component {
                   <NiceDate date={this.props.date_created} format={"MMMM dd"} />
                 </span>
                 <NiceDate date={this.props.date_created} format={", yyyy"} />
-                {" · views: "}
+                {"  ·  views: "}
                 <span className="BlogListItem--color-splash">
                   {this.props.number_of_views}
                 </span>
