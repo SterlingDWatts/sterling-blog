@@ -17,6 +17,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 200;
+  border-left: 1px solid #2d8cfb;
 }
 
 .BlogListItem__pic_holder {
@@ -27,6 +28,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 1.25;
+  padding-left: 8px;
 }
 
 a.BlogListItem__title_link:link,
@@ -38,12 +40,13 @@ a.BlogListItem__title_link:visited {
 .BlogListItem__date_and_views {
   font-size: 13px;
   color: grey;
+  padding-left: 8px;
 }
 
 .BlogListItem__author {
   width: 50%;
   border-bottom: 1px solid #2d8cfb;
-  padding: 4px 0px;
+  padding: 4px 0px 4px 8px;
   font-size: 16px;
 }
 
@@ -82,6 +85,10 @@ a.BlogListItem__title_link:visited {
 .BlogListItem:nth-child(1) .BlogListItem__pic_holder,
 .BlogListItem:nth-child(1) .BlogListItem__info {
   width: 100%;
+}
+
+.BlogListItem:nth-child(1) .BlogListItem__info {
+  border-left-color: #c1520b;
 }
 
 .BlogListItem:nth-child(1) .BlogListItem__pic {
