@@ -58,6 +58,7 @@
   justify-content: space-between;
   align-items: center;
   height: 157.5px;
+  margin-top: 16px;
 }
 
 @media screen and (min-width: 650px) {

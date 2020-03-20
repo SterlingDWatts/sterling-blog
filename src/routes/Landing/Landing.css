@@ -78,6 +78,7 @@
   width: auto;
   height: calc((100vw - 32px) * 0.2777);
   max-height: 200px;
+  border-left-color: #2d8cfb;
 }
 
 .Landing .BlogListItem:nth-child(1) .BlogListItem__pic {
