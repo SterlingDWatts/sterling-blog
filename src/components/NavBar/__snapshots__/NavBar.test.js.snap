@@ -23,14 +23,8 @@ exports[`NavBar Component renders the UI as expected 1`] = `
       </a>
     </div>
     <nav
-      className="NavBar__links_big"
+      className="NavBar__links NavBar__medium"
     >
-      <a
-        href="/blogs/create-blog"
-        onClick={[Function]}
-      >
-        Create Blog
-      </a>
       <a
         href="/login"
         onClick={[Function]}
@@ -45,7 +39,7 @@ exports[`NavBar Component renders the UI as expected 1`] = `
       </a>
     </nav>
     <button
-      className="Button hamburger_button"
+      className="Button hamburger_button NavBar__small"
       onClick={[Function]}
       type="button"
     >

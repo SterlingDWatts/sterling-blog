@@ -52,20 +52,20 @@ class NavBar extends Component {
     this.toggleSideNav();
   };
 
-  renderLogoutLink() {
+  renderSideNavLogoutLink() {
     return (
       <>
         <Link to="/blogs/create-blog" onClick={this.toggleSideNav}>
           Create Blog
         </Link>
-        <Link onClick={this.handleLogoutSideNav} to="/blogs">
+        <Link to="/blogs" onClick={this.handleLogoutSideNav}>
           Logout
         </Link>
       </>
     );
   }
 
-  renderLoginLink() {
+  renderSideNavLoginLink() {
     return (
       <>
         <Link to="/login" onClick={this.toggleSideNav}>
@@ -82,12 +82,12 @@ class NavBar extends Component {
     return (
       <>
         <button
-          className="SideNav__overlay_button"
+          className="SideNav__overlay_button NavBarsmall"
           onClick={this.toggleSideNav}
         ></button>
         <nav className="SideNav">
           <Button
-            className="SideNav__hamburger_button"
+            className="SideNav__hamburger_button NavBar__small"
             type="button"
             onClick={this.toggleSideNav}
           >
@@ -97,12 +97,30 @@ class NavBar extends Component {
             Blogs
           </Link>
           {TokenService.hasAuthToken()
-            ? this.renderLogoutLink()
-            : this.renderLoginLink()}
+            ? this.renderSideNavLogoutLink()
+            : this.renderSideNavLoginLink()}
         </nav>
       </>
     );
   };
+
+  renderLogoutLink() {
+    return (
+      <>
+        <Link to="/blogs/create-blog">Create Blog</Link>
+        <Link to="/blogs">Logout</Link>
+      </>
+    );
+  }
+
+  renderLoginLink() {
+    return (
+      <>
+        <Link to="/login">Login</Link>
+        <Link to="/create-account">Create Account</Link>
+      </>
+    );
+  }
 
   render() {
     return (
@@ -117,19 +135,13 @@ class NavBar extends Component {
               Sterling | <span className="NavBar--color-splash">Blog</span>
             </Link>
           </div>
-          <nav className="NavBar__links_big">
-            <Link to="/blogs/create-blog">Create Blog</Link>
-            {TokenService.hasAuthToken() ? (
-              <Link to="/blogs">Logout</Link>
-            ) : (
-              <>
-                <Link to="/login">Login</Link>
-                <Link to="/create-account">Create Account</Link>
-              </>
-            )}
+          <nav className="NavBar__links NavBar__medium">
+            {TokenService.hasAuthToken()
+              ? this.renderLogoutLink()
+              : this.renderLoginLink()}
           </nav>
           <Button
-            className="hamburger_button"
+            className="hamburger_button NavBar__small"
             type="button"
             onClick={this.toggleSideNav}
           >

@@ -31,7 +31,11 @@ exports[`BlogBody Component renders the UI as expected 1`] = `
     <div
       className="BlogBody__views"
     >
-       views
+      <span
+        className="BlogBody--color-splash"
+      />
+       
+      views
     </div>
   </div>
   <div

@@ -1,5 +1,14 @@
 import React, { Component } from "react";
+import {
+  ValidationError,
+  Required,
+  Button,
+  Page
+} from "../../components/Utils/Utils";
+import BlogListContext from "../../contexts/BlogListContext";
+import BlogApiService from "../../services/blog-api-service";
 import config from "../../config";
+import "./AddBlog.css";
 
 // import files for froala editor
 import FroalaEditor from "react-froala-wysiwyg";
@@ -27,16 +36,6 @@ import "froala-editor/js/plugins/quote.min.js";
 // Enables advanced image editing
 import "froala-editor/js/plugins/image.min.js";
 import "froala-editor/css/plugins/image.min.css";
-
-import {
-  ValidationError,
-  Required,
-  Button,
-  Page
-} from "../../components/Utils/Utils";
-import BlogListContext from "../../contexts/BlogListContext";
-import "./AddBlog.css";
-import BlogApiService from "../../services/blog-api-service";
 
 class AddBlog extends Component {
   static contextType = BlogListContext;
@@ -164,7 +163,6 @@ class AddBlog extends Component {
         model={this.state.picture.model}
         onModelChange={this.handlePictureChange}
         config={{
-          initOnClick: true,
           imageUploadToS3: this.state.s3Hash,
           imageEditButtons: ["imageReplace", "imageAlt"],
           key: config.FROALA_API_KEY
@@ -228,7 +226,6 @@ class AddBlog extends Component {
             </label>
             <FroalaEditor
               tag="textarea"
-              id="content"
               model={this.state.content.value}
               onModelChange={this.handleContentChange}
               config={{

@@ -20,11 +20,7 @@ const IdleService = {
   },
   registerIdleTimerResets() {
     _notIdleEvents.forEach(event =>
-      document.addEventListener(
-        event,
-        IdleService.registerIdleTimerResets,
-        true
-      )
+      document.addEventListener(event, IdleService.resetIdleTimer, true)
     );
   },
   unRegisterIdleResets() {

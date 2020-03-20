@@ -1,5 +1,6 @@
 .CreateAccountForm {
-  max-width: 320px;
+  width: 100%;
+  max-width: 944px;
   margin: auto;
   border-radius: 10px;
   background-color: white;
