@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.BlogPage__blog_list {
+  width: 100%;
+}
+
 .BlogPage__blog_list > h3 {
   margin: 32px 0px;
   text-align: center;

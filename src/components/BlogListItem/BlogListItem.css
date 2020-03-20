@@ -1,9 +1,7 @@
 .BlogListItem {
-  border-radius: 5px;
-  background-color: rgba(0, 0, 255, 0.123);
+  background-color: white;
   overflow: hidden;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  width: 288px;
+  width: 100%;
 }
 
 .BlogListItem__title_link {
@@ -13,16 +11,16 @@
   line-height: 1em;
 }
 
-.BlogListItem:nth-child(1) > a {
-  flex-direction: column-reverse;
-  align-items: center;
-}
-
 .BlogListItem__info {
   padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-grow: 200;
+}
+
+.BlogListItem__pic_holder {
+  flex-grow: 1;
 }
 
 .BlogListItem__title {
@@ -41,11 +39,10 @@ a.BlogListItem__title_link:visited {
 }
 
 .BlogListItem__author {
-  width: 120px;
-  border-top: 1px solid rgba(0, 0, 255, 0.123);
-  font-size: 13px;
-  margin-bottom: 8px;
+  width: 50%;
+  border-top: 1px solid #2d8cfb;
   padding-top: 4px;
+  font-size: 13px;
 }
 
 .BlogListItem__pic {
@@ -57,18 +54,45 @@ a.BlogListItem__title_link:visited {
   background-size: cover;
 }
 
+.BlogListItem + .BlogListItem {
+  margin-top: 32px;
+}
+
+.BlogListItem--color-splash {
+  color: #fa813d;
+}
+
+.BlogListItem:nth-child(1) > a {
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.BlogListItem:nth-child(1) .BlogListItem__title {
+  line-height: 1;
+  font-size: 24px;
+}
+
+.BlogListItem:nth-child(1) .BlogListItem__date_and_views {
+  line-height: 1;
+}
+
+.BlogListItem:nth-child(1) .BlogListItem__pic_holder,
+.BlogListItem:nth-child(1) .BlogListItem__info {
+  width: 100%;
+}
+
 .BlogListItem:nth-child(1) .BlogListItem__pic {
-  width: 288px;
-  max-width: 288px;
+  width: 100%;
+  max-width: 100%;
   height: 173px;
   max-height: 173px;
 }
 
-.BlogListItem:nth-child(1) h3 {
-  font-size: 24px;
-  line-height: 1.5;
+.BlogListItem:nth-child(1) .BlogListItem__author {
+  margin-top: 16px;
+  border-top-color: #c1520b;
 }
 
-.BlogListItem + .BlogListItem {
-  margin-top: 16px;
+.BlogListItem:nth-child(1) .BlogListItem--color-splash {
+  color: #0060c7;
 }

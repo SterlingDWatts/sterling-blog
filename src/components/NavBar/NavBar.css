@@ -2,9 +2,13 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: fixed;
   top: 0;
+  transition-property: top;
+  transition-duration: 0.25s;
+  transition-timing-function: linear;
   left: 0;
   right: 0;
   background-color: white;
+  color: black;
   z-index: 10;
 }
 
@@ -25,8 +29,16 @@
   color: black;
 }
 
+.NavBar--color-splash {
+  color: #0060c7;
+}
+
 .NavBar__links_big {
   display: none;
+}
+
+.Button.hamburger_button {
+  color: black;
 }
 
 .Button.hamburger_button,
@@ -36,6 +48,11 @@
   margin: 0px;
   background-color: rgba(0, 0, 0, 0);
   font-size: 16px;
+}
+
+.Button.SideNav__hamburger_button {
+  background-color: white;
+  color: black;
 }
 
 .SideNav {
@@ -52,8 +69,21 @@
   background-color: white;
 }
 
+.SideNav__overlay_button {
+  position: fixed;
+  width: 25vw;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgb(0, 0, 0, 0.5);
+  border: none;
+}
+
 .Button.SideNav__hamburger_button {
-  margin: 32px auto;
+  width: 100%;
+  padding: 32px 0px;
+  margin-bottom: 8px;
+  background-color: #fa813d;
 }
 
 .SideNav a {
@@ -63,5 +93,5 @@
 }
 
 .NavBar--hidden {
-  top: -34px;
+  top: -50px;
 }

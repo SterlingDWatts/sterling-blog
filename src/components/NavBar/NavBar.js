@@ -80,21 +80,27 @@ class NavBar extends Component {
 
   renderSideNav = () => {
     return (
-      <nav className="SideNav">
-        <Button
-          className="SideNav__hamburger_button"
-          type="button"
+      <>
+        <button
+          className="SideNav__overlay_button"
           onClick={this.toggleSideNav}
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </Button>
-        <Link to="/blogs" onClick={this.toggleSideNav}>
-          Blogs
-        </Link>
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
-      </nav>
+        ></button>
+        <nav className="SideNav">
+          <Button
+            className="SideNav__hamburger_button"
+            type="button"
+            onClick={this.toggleSideNav}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </Button>
+          <Link to="/blogs" onClick={this.toggleSideNav}>
+            Blogs
+          </Link>
+          {TokenService.hasAuthToken()
+            ? this.renderLogoutLink()
+            : this.renderLoginLink()}
+        </nav>
+      </>
     );
   };
 
@@ -107,7 +113,9 @@ class NavBar extends Component {
       >
         <div className="NavBar__container">
           <div className="NavBar__marque">
-            <Link to="/blogs">Sterling | Blog</Link>
+            <Link to="/blogs">
+              Sterling | <span className="NavBar--color-splash">Blog</span>
+            </Link>
           </div>
           <nav className="NavBar__links_big">
             <Link to="/blogs/create-blog">Create Blog</Link>

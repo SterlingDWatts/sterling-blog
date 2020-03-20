@@ -20,8 +20,14 @@ class BlogListItem extends Component {
               <h3 className="BlogListItem__title">{this.props.title}</h3>
 
               <h4 className="BlogListItem__date_and_views">
-                <NiceDate date={this.props.date_created} />
-                {" · views: " + this.props.number_of_views}
+                <span className="BlogListItem--color-splash">
+                  <NiceDate date={this.props.date_created} format={"MMMM dd"} />
+                </span>
+                <NiceDate date={this.props.date_created} format={", yyyy"} />
+                {" · views: "}
+                <span className="BlogListItem--color-splash">
+                  {this.props.number_of_views}
+                </span>
               </h4>
             </header>
             <div className="BlogListItem__author">

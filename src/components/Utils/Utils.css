@@ -42,8 +42,9 @@
 
 .Input:focus,
 input:active {
-  border: 2px solid rgba(66, 133, 244);
+  border: 2px solid #2d8cfb;
   padding: 15px 12px;
+  outline: none;
 }
 
 .Button.form__button {
@@ -55,11 +56,10 @@ input:active {
   font-size: 16px;
   background: linear-gradient(
     90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 121, 191, 1) 0%,
-    rgba(0, 177, 255, 1) 100%
+    rgb(250, 129, 61) 0%,
+    rgb(253, 162, 92) 100%
   );
-  color: white;
+  color: black;
   font-weight: 600;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }

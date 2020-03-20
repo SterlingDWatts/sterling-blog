@@ -28,6 +28,10 @@
   font-size: 13px;
 }
 
+.LoginForm__other_links a {
+  color: #2d8cfb;
+}
+
 @media screen and (min-width: 350px) {
   .LoginForm {
     padding: 16px;

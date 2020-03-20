@@ -1,11 +1,6 @@
-@media screen and (min-width: 350px) {
+@media screen and (min-width: 450px) {
   .CreateAccountPage {
     background: rgb(2, 0, 36);
-    background: linear-gradient(
-      0deg,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(0, 121, 191, 1) 0%,
-      rgba(0, 212, 255, 1) 100%
-    );
+    background: linear-gradient(0deg, #2d8cfb 0%, #75bcff 100%);
   }
 }
