@@ -11,7 +11,12 @@ exports[`BlogPage Component renders the UI as expected 1`] = `
     className="BlogPage__blog_list"
   >
     <h3>
-      Recent Blogs
+      <span
+        className="BlogPage--color-splash"
+      >
+        Recent
+      </span>
+       Blogs
     </h3>
     <ul
       className="BlogList"

@@ -51,7 +51,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/home" component={Landing} />
           <Route exact path="/blogs" component={BlogsListPage} />
           <PrivateRoute path="/blogs/create-blog" component={AddBlog} />
           <PrivateRoute path="/blogs/edit/:blogId" component={EditBlog} />

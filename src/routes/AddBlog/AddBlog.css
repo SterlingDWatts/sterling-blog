@@ -78,3 +78,18 @@
   font-size: 24px;
   font-weight: 600;
 }
+
+.AddBlog__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 157.5px;
+}
+
+@media screen and (min-width: 650px) {
+  .AddBlog__buttons {
+    flex-direction: row;
+    max-width: 700px;
+  }
+}

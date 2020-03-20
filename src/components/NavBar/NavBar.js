@@ -108,7 +108,9 @@ class NavBar extends Component {
     return (
       <>
         <Link to="/blogs/create-blog">Create Blog</Link>
-        <Link to="/blogs">Logout</Link>
+        <Link to="/blogs" onClick={this.handleLogout}>
+          Logout
+        </Link>
       </>
     );
   }

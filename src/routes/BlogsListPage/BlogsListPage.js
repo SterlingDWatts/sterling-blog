@@ -7,7 +7,9 @@ class BlogsListPage extends Component {
   render() {
     return (
       <Page className="BlogsListPage">
-        <h2>Sterling | Blog</h2>
+        <h2>
+          Sterling | <span className="BlogListPage--color-splash">Blog</span>
+        </h2>
         <main>
           <BlogList />
         </main>

@@ -92,7 +92,9 @@ class BlogPage extends Component {
       <Page className="BlogPage">
         {content}
         <section className="BlogPage__blog_list">
-          <h3>Recent Blogs</h3>
+          <h3>
+            <span className="BlogPage--color-splash">Recent</span> Blogs
+          </h3>
           <BlogList recent={true} blogId={blogId} />
         </section>
       </Page>

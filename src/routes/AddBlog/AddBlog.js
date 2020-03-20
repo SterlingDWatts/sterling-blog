@@ -156,6 +156,10 @@ class AddBlog extends Component {
       });
   };
 
+  handleCancelClick = () => {
+    this.props.history.push("/blogs");
+  };
+
   renderImageEditor = () => {
     return (
       <FroalaEditorImg
@@ -262,12 +266,15 @@ class AddBlog extends Component {
           </div>
           <div className="AddBlog__buttons">
             <Button
+              className="form__button"
               type="submit"
               disabled={this.validateTitle() || this.validatePicture()}
             >
               Submit
             </Button>
-            <Button>Cancel</Button>
+            <Button className="form__button" onClick={this.handleCancelClick}>
+              Cancel
+            </Button>
           </div>
         </form>
       </Page>

@@ -50,3 +50,7 @@
 .BlogPage .BlogListItem:nth-child(1) .BlogListItem--color-splash {
   color: #fa813d;
 }
+
+.BlogPage--color-splash {
+  color: #fa813d;
+}

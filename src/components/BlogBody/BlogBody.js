@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NiceDate } from "../Utils/Utils";
+import { NiceDate, Button } from "../Utils/Utils";
 import BlogBodyContext from "../../contexts/BlogPageContext";
 import TokenService from "../../services/token-service";
 import "./BlogBody.css";
@@ -14,17 +14,20 @@ class BlogBody extends Component {
 
   renderButtons = () => {
     return (
-      <>
-        <button className="BlogBody__delete_button" onClick={this.props.onEdit}>
+      <div className="BlogBody__buttons">
+        <Button
+          className="BlogBody__delete_button form__button"
+          onClick={this.props.onEdit}
+        >
           Edit Blog
-        </button>
-        <button
-          className="BlogBody__delete_button"
+        </Button>
+        <Button
+          className="BlogBody__delete_button form__button"
           onClick={this.props.onDelete}
         >
           Delete Blog
-        </button>
-      </>
+        </Button>
+      </div>
     );
   };
 
@@ -69,11 +72,10 @@ class BlogBody extends Component {
           dangerouslySetInnerHTML={{ __html: content }}
           className="BlogBody__content"
         />
-        <div className="BlogBody__buttons">
-          {TokenService.hasAuthToken() &&
-            TokenService.hasPrivileges(author.id) &&
-            this.renderButtons()}
-        </div>
+
+        {TokenService.hasAuthToken() &&
+          TokenService.hasPrivileges(author.id) &&
+          this.renderButtons()}
       </main>
     );
   }

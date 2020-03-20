@@ -5,7 +5,12 @@ exports[`BlogsListPage Component renders the UI as expected 1`] = `
   className="Page BlogsListPage"
 >
   <h2>
-    Sterling | Blog
+    Sterling | 
+    <span
+      className="BlogListPage--color-splash"
+    >
+      Blog
+    </span>
   </h2>
   <main>
     <ul

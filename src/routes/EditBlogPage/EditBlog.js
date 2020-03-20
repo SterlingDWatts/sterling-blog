@@ -138,6 +138,10 @@ class EditBlog extends Component {
       });
   };
 
+  handleCancelClick = () => {
+    this.props.history.push("/blogs");
+  };
+
   render() {
     const titleError = this.validateTitle();
     const pictureError = this.validatePicture();
@@ -145,7 +149,7 @@ class EditBlog extends Component {
     return (
       <Page>
         <form className="EditBlog" onSubmit={e => this.handleSubmit(e)}>
-          <h2>Create Blog</h2>
+          <h2>Edit Blog</h2>
           <div className="hint">
             <Required /> required fields
           </div>
@@ -220,6 +224,7 @@ class EditBlog extends Component {
           </div>
           <div className="EditBlog__buttons">
             <Button
+              className="form__button"
               type="submit"
               disabled={
                 this.validateTitle() ||
@@ -229,7 +234,9 @@ class EditBlog extends Component {
             >
               Submit
             </Button>
-            <Button>Cancel</Button>
+            <Button className="form__button" onClick={this.handleCancelClick}>
+              Cancel
+            </Button>
           </div>
         </form>
       </Page>

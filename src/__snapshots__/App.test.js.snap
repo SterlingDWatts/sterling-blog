@@ -26,14 +26,8 @@ exports[`App Component renders the UI as expected 1`] = `
         </a>
       </div>
       <nav
-        className="NavBar__links_big"
+        className="NavBar__links NavBar__medium"
       >
-        <a
-          href="/blogs/create-blog"
-          onClick={[Function]}
-        >
-          Create Blog
-        </a>
         <a
           href="/login"
           onClick={[Function]}
@@ -48,7 +42,7 @@ exports[`App Component renders the UI as expected 1`] = `
         </a>
       </nav>
       <button
-        className="Button hamburger_button"
+        className="Button hamburger_button NavBar__small"
         onClick={[Function]}
         type="button"
       >
@@ -72,66 +66,6 @@ exports[`App Component renders the UI as expected 1`] = `
       </button>
     </div>
   </nav>
-  <div
-    className="Page Landing"
-  >
-    <header>
-      <h1>
-        Sterling | Blog
-      </h1>
-      <h2>
-        Easily share your thoughts.
-      </h2>
-    </header>
-    <section>
-      <header>
-        <h3>
-          Display your thoughts easily for the world to see
-        </h3>
-      </header>
-      <img
-        alt="Blog List Page"
-        className="Landing__blog_list_pic"
-        src="blog-list-screen.png"
-        width="242px"
-      />
-      <p>
-        The Blogs page displays a list of all of your blogs for your readers to easily find your content. When you make a new blog post, it is automatically added to the list and linked to it's unique page. Focus morer on the creative work of writing, not on maintaining a site!
-      </p>
-    </section>
-    <section>
-      <header>
-        <h3>
-          Style your blog.
-        </h3>
-      </header>
-      <img
-        alt="Blog Page"
-        className="Landing__blog_page_pic"
-        src="blog-page-screen.png"
-        width="242px"
-      />
-      <p>
-        Use the simple interface to style your blog and and see it exactly as your readers will. Edit font size, color, and style. This powerful editor will allow you to make your content look exactly the way that you want, giving you the perfect creative outlet.
-      </p>
-    </section>
-    <section>
-      <header>
-        <h3>
-          Edit on the go!
-        </h3>
-      </header>
-      <img
-        alt="Blog Edit Page"
-        className="Landing__edit_blog_pic"
-        src="edit-blog-screen.png"
-        width="242px"
-      />
-      <p>
-        Editing after you have published is effortless. Just open up your blog and tap the edit button. The content is loaded into the editor, making it so unbomplicated that you would feel confortable editing a simple error on your phone if you noticed it rather than waiting to get back to your computer.
-      </p>
-    </section>
-  </div>
   <footer
     className="Footer"
   >
