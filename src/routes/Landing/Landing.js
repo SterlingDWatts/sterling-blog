@@ -117,7 +117,17 @@ class Landing extends Component {
             simple error on your phone if you noticed it rather than waiting to
             get back to your computer.
           </p>
-          <Link to="/blogs">Check it out!</Link>
+
+          <Link to="/blogs">Check it out now!</Link>
+          <p>
+            If you want to test it out without creating an account, just use the
+            dumby credentials!
+            <br />
+            <br />
+            Username: RealPerson
+            <br />
+            Password: abCD56&*
+          </p>
         </section>
       </Page>
     );
