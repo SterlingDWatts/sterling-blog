@@ -7,7 +7,7 @@ let _notIdleEvents = [
   "scroll",
   "touchstart"
 ];
-let _FIVE_MINUTES_IN_MS = 5 * 60 * 1000;
+let _ONE_HOUR_IN_MS = 120 * 60 * 1000;
 
 const IdleService = {
   setIdleCallback(idleCallback) {
@@ -16,7 +16,7 @@ const IdleService = {
   resetIdleTimer(ev) {
     console.info("event", ev.type);
     clearTimeout(_timeoutId);
-    _timeoutId = setTimeout(_idleCallback, _FIVE_MINUTES_IN_MS);
+    _timeoutId = setTimeout(_idleCallback, _ONE_HOUR_IN_MS);
   },
   registerIdleTimerResets() {
     _notIdleEvents.forEach(event =>
