@@ -45,7 +45,9 @@ class Landing extends Component {
       <Page className="Landing">
         <header>
           <h1>
-            Sterling | <span className="Landing--color-splash">Blog</span>
+            <Link to="/blogs">
+              Sterling | <span className="Landing--color-splash">Blog</span>
+            </Link>
           </h1>
           <h2>Easily share your thoughts.</h2>
         </header>

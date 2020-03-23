@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import BlogBody from "../../components/BlogBody/BlogBody";
 import BlogList from "../../components/BlogList/BlogList";
 import BlogPageContext from "../../contexts/BlogPageContext";
@@ -83,7 +85,14 @@ class BlogPage extends Component {
           <p className="BlogPage--error">There was an error</p>
         );
     } else if (!blog.id) {
-      content = <div className="BlogPage--loading" />;
+      content = (
+        <div className="BlogPage--loading-splash">
+          Loading Blog<span className="BlogPage--color-splash">...</span>
+          <br />
+          <br />
+          <FontAwesomeIcon icon={faSpinner} pulse />
+        </div>
+      );
     } else {
       content = this.renderBlog();
     }

@@ -1,0 +1,13 @@
+.BlogList--loading-splash {
+  text-align: center;
+  font-size: 24px;
+  margin: 16px;
+}
+
+.BlogList--color-splash {
+  color: #0060c7;
+}
+
+.BlogList--loading-splash svg {
+  color: #fa813d;
+}

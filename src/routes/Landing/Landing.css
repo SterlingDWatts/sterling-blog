@@ -15,6 +15,11 @@
   margin: 27px 0px 8px;
 }
 
+.Landing h1 a {
+  color: black;
+  text-decoration: none;
+}
+
 .Landing h2 {
   font-size: 20px;
   margin: 0px 0px 24px;

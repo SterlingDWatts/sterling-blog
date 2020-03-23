@@ -3,6 +3,20 @@
   margin: 0 auto;
 }
 
+.BlogPage--loading-splash {
+  text-align: center;
+  font-size: 24px;
+  margin: 16px;
+}
+
+.BlogPage--color-splash {
+  color: #fa813d;
+}
+
+.BlogPage--loading-splash svg {
+  color: #0060c7;
+}
+
 .BlogPage__blog_list {
   width: 100%;
 }
@@ -49,9 +63,5 @@
 }
 
 .BlogPage .BlogListItem:nth-child(1) .BlogListItem--color-splash {
-  color: #fa813d;
-}
-
-.BlogPage--color-splash {
   color: #fa813d;
 }
