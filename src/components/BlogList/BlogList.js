@@ -28,6 +28,8 @@ class BlogList extends Component {
         blog => blog.id !== Number(this.props.blogId)
       );
       blogList = this.props.recent ? blogList.slice(0, 2) : blogList;
+      blogList = this.props.featured ? blogList.slice(0, 3) : blogList;
+      blogList = this.props.denseView ? blogList.slice(3) : blogList;
       return blogList.map(blog => <BlogListItem key={blog.id} {...blog} />);
     }
     return (

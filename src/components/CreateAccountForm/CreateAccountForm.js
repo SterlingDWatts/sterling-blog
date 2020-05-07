@@ -147,7 +147,7 @@ class CreateAccountForm extends Component {
     if (password.length === 0) {
       return "Password is required";
     } else if (!PASSWORD_REGEX.test(password)) {
-      return "Password must include at least upper case, lower case, number, and special character";
+      return "Password must include at least one upper case, lower case, number, and special character";
     } else if (password.startsWith(" ") || password.endsWith(" ")) {
       return "Password must not start or end with an empty space";
     } else if (password.length < 8 || password.length > 72) {

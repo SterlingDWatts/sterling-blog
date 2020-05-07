@@ -77,6 +77,15 @@ exports[`LoginForm Component renders the UI as expected 1`] = `
     </div>
   </div>
   <div
+    className="LoginForm--error"
+  >
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
     className="LoginForm__buttons"
   >
     <button

@@ -64,6 +64,26 @@ input:active {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
+.Button.form__button:hover,
+.Button.form__button:focus,
+.Button.form__button:active {
+  background: linear-gradient(
+    90deg,
+    rgb(247, 96, 30) 0%,
+    rgb(250, 129, 61) 100%
+  );
+  outline: none;
+}
+
+.Button.form__button:focus {
+  border: 2px solid #2d8cfb;
+}
+
+.Button.form__button:active {
+  border: none;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16), 0 2px 3px rgba(0, 0, 0, 0.23);
+}
+
 .Page {
   min-height: 100vh;
   padding: 51px 16px;

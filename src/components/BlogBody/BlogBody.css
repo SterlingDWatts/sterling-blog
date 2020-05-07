@@ -1,6 +1,7 @@
 .BlogBody {
   line-height: 1.5em;
   width: 100%;
+  font-family: "Merriweather", serif;
 }
 
 .BlogBody__title {

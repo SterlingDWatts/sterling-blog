@@ -211,7 +211,6 @@ class EditBlog extends Component {
                 initOnClick: true,
                 placeholderText: "Click to Edit Blog Content",
                 charCounterCount: true,
-                fontSizeSelection: false,
                 fontSizeDefaultSelection: "16",
                 attribution: false,
                 key: config.FROALA_API_KEY

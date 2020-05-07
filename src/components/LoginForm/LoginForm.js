@@ -138,6 +138,9 @@ class LoginForm extends Component {
             touched={this.state.password.touched}
           />
         </LabelGroup>
+        <div className="LoginForm--error">
+          <ValidationError message={this.state.error} touched={true} />
+        </div>
         <div className="LoginForm__buttons">
           <Button
             type="submit"

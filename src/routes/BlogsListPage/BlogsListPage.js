@@ -8,10 +8,16 @@ class BlogsListPage extends Component {
     return (
       <Page className="BlogsListPage">
         <h2>
-          Sterling | <span className="BlogListPage--color-splash">Blog</span>
+          Sterling | <span className="BlogsListPage--color-splash">Blog</span>
         </h2>
         <main>
-          <BlogList />
+          <div className="BlogsListPage--small">
+            <BlogList />
+          </div>
+          <div className="BlogsListPage--large">
+            <BlogList featured={true} />
+            <BlogList denseView={true} />
+          </div>
         </main>
       </Page>
     );
